@@ -13,7 +13,7 @@ cmain #ff4d00;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image:url('../desktop.png');
+  background-image:url('../mobile.png');
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 999999;
@@ -33,10 +33,11 @@ ol, ul {list-style: none; }
 .trans7{-webkit-transition: all 0.7s ease-out; -moz-transition: all 0.7s ease-out; -ms-transition: all 0.7s ease-out; -o-transition: all 0.7s ease-out; transition: all 0.7s ease-out }
 .flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
 .standarWidth{ width: 100vw; min-width: 250px; }
+#index{background: #ff4d00;}
+#bases{background: #ffffff;}
 body{
   font-family: 'GMedium', serif;
   position: relative;
-  background: #ff4d00;
   color: #000;
 }
 #loading{
@@ -138,7 +139,8 @@ footer>a>span{ display: none }
 
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 @media (min-width: 350px){ nav>p{ text-transform: uppercase; font-size: 0.9rem; } }
-#carrusel, #cupon{
+#carrusel, #generandocupon, #cupon, #guardado{
+  background: #ff4d00;
   position: fixed;
   height: 100vh;
 }
@@ -156,7 +158,6 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -ms-flex-direction: column;
   -o-flex-direction: column;
   flex-direction: column;
-  background: #ff4d00;
 }
 .producto>.wrap{
   width: 100%;
@@ -168,7 +169,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 }
 #seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); }
 #seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
-#producto1>a{
+.buttonG{
   font-family: 'GBlack', serif;
   font-size: 1.1rem;
   letter-spacing: 1.5;
@@ -182,41 +183,117 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   border-radius: 20px;
   color: #ff4d00;
   background: #fff;
-  bottom: 120px;
   left: calc(50% - 100px);
 }
+.buttonG:hover{ opacity: 0.7; }
+#carrusel>section>.buttonG{ bottom: 120px; }
 #producto1>#line{
   position: absolute;
   bottom: 200px;
   width: 100vw;
   height: 1px;
-  background: red;
 }
-#producto1>a:hover{ opacity: 0.7; }
-#cupon>section>#counter{
+#generandocupon>section>#counter{
   position: absolute;
-  bottom: 90px;
-  left: calc(50% - 50px);
-  width: 100px;
-  height: 100px;
-  /* background-image: url('../img/demo/circle.png');
+  bottom: 60px;
+  width: 60px;
+  height: 60px;
+  left: calc(50% - 30px);
+  background-image: url('../img/demo/circle.png');
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center; */
-  background: red;
+  background-position: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
 }
-/* DESKTOP */
+#generandocupon>section>#counter>p{
+  font-family: 'GBlack', serif;
+  font-size: 1.5rem;
+}
+.cupon{
+  position: relative;
+  margin: 55px auto 0 auto;
+  width:90%;
+  height: calc(100vh - 220px);
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  overflow: hidden;
+  background-image: url('../img/demo/promoMob.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#guardado>div{
+  margin-top: 55px;
+  width: 100%;
+  height: calc(100% - 160px);
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-justify-content:space-around;
+  -moz-justify-content:space-around;
+  -ms-justify-content:space-around;
+  -o-justify-content:space-around;
+  justify-content:space-around;
+}
+#guardado>div>p{
+  font-family: 'GBold', serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  width: 250px;
+  line-height: 1;
+}
+#guardado>div>p>span{
+  color: #fff;
+}
 @media (min-width: 960px){
-  #producto1>a{
-    font-size: 1.5rem;
-    width: 300px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 30px;
-    left: calc(50% - 150px);
+  #guardado>div{
+    margin-top: 70px;
+    height: calc(100% - 115px);
   }
-  #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); }
-  #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
+  .cupon{
+    margin: 75px auto 0 auto;
+    height: calc(100% - 250px);
+    background-image: url('../img/demo/promoDesk.png');
+  }
+  #generandocupon>section>#counter{
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    bottom: 90px;
+  }
+  #generandocupon>section>#counter>p{
+    font-size: 2.1rem;
+  }
   nav{
     top: 30px;
     left: 30px;
@@ -241,9 +318,75 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
+  #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); }
+  #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
+  .buttonG{
+    font-size: 1.5rem;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 30px;
+    left: calc(50% - 150px);
+  }
 }
 @-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-ms-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-o-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+/* BASES */
+#bases{
+  padding-bottom: 100px;
+}
+#bases>h1,#bases>h2{
+  display: block;
+  position: relative;
+  font-family: 'GBold', serif;
+  color: #ff4d00;
+  text-transform: uppercase;
+  text-align: center;
+}
+#bases>h1{
+  font-size:1.5rem;
+  margin: 30px auto 10px auto;
+  width: 90%;
+  line-height: 1.1;
+}
+#bases>h2{
+  font-size:1.2rem;
+}
+#bases>p{
+  text-align: center;
+  position: relative;
+  margin: 10px auto;
+  width: 80%;
+  max-width: 800px;
+}
+#bases>p>span{
+  color: #ff4d00;
+}
+#bases>ul{
+  font-size: 0.9rem;
+  position: relative;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  /* text-align: center; */
+}
+#bases>ul>li{
+  margin: 5px auto;
+  line-height: 20px;
+}
+#bases>ul.bullets>li::before{
+  display: inline-block;
+  content: "";
+  background: #ff4d00;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  line-height: 20px;
+  margin-right: 5px;
+}
+@media (min-width: 960px){
+  #bases>p{}
+}
