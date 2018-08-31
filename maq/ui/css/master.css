@@ -7,7 +7,7 @@ Author: Oet Capital
 /*
 cmain #ff4d00;
 */
-/* #block{
+#block{
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ cmain #ff4d00;
   background-size: contain;
   z-index: 999999;
   opacity: 0.5;
-} */
+}
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,
 sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
@@ -30,6 +30,7 @@ ol, ul {list-style: none; }
 * a {cursor: pointer; text-decoration: none; color: #000;}
 * i {font-style: italic; }
 * p { font-size: 1rem;}
+.trans7{-webkit-transition: all 0.7s ease-out; -moz-transition: all 0.7s ease-out; -ms-transition: all 0.7s ease-out; -o-transition: all 0.7s ease-out; transition: all 0.7s ease-out }
 .flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
 .standarWidth{ width: 100vw; min-width: 250px; }
 body{
@@ -137,11 +138,12 @@ footer>a>span{ display: none }
 
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 @media (min-width: 350px){ nav>p{ text-transform: uppercase; font-size: 0.9rem; } }
-#carrusel{
+#carrusel, #cupon{
   position: fixed;
   height: 100vh;
 }
 .producto{
+  position: relative;
   width: 100%;
   height: 100%;
   -webkit-justify-content: center;
@@ -149,23 +151,72 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
   background: #ff4d00;
 }
 .producto>.wrap{
   width: 100%;
   height: 100%;
   min-width: 300px;
-  background-image: url('../img/demo/seqHomeMob.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  border: 1px solid red;
+}
+#seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); }
+#seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
+#producto1>a{
+  font-family: 'GBlack', serif;
+  font-size: 1.1rem;
+  letter-spacing: 1.5;
+  text-transform: uppercase;
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  color: #ff4d00;
+  background: #fff;
+  bottom: 120px;
+  left: calc(50% - 100px);
+}
+#producto1>#line{
+  position: absolute;
+  bottom: 200px;
+  width: 100vw;
+  height: 1px;
+  background: red;
+}
+#producto1>a:hover{ opacity: 0.7; }
+#cupon>section>#counter{
+  position: absolute;
+  bottom: 90px;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+  /* background-image: url('../img/demo/circle.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+  background: red;
 }
 /* DESKTOP */
 @media (min-width: 960px){
-  .producto>.wrap{
-    background-image: url('../img/demo/seqHomeDesk.jpg');
+  #producto1>a{
+    font-size: 1.5rem;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 30px;
+    left: calc(50% - 150px);
   }
+  #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); }
+  #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
   nav{
     top: 30px;
     left: 30px;
@@ -189,7 +240,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
     justify-content: center;
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
-  footer>a>span{ display: block; margin: 0 3px;}
+  footer>p>span{ margin: 0 3px;}
 }
 @-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }

@@ -29,7 +29,7 @@ Sigue sudando v2
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
   </head>
   <body class="standarWidth">
-    <!-- <div id="block"></div> -->
+    <div id="block"></div>
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth">
       <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280">
@@ -42,26 +42,37 @@ Sigue sudando v2
           <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
         </a>
       </h1>
-      <p id="stateText"> Cupón guardado exitosamente </p>
+      <p id="stateText"></p>
       <div id="blk"></div>
     </nav>
     <!-- PRODUCTOS -->
-    <div id="carrusel" class="standarWidth">
-      <section id="producto-1" class="producto flexDisplay">
-        <div id="seqHomeMob" class="wrap"></div>
+    <div id="carrusel" class="standarWidth" style="display:block">
+      <section id="producto1" class="producto flexDisplay">
+        <div id="seqHome" class="wrap"></div>
+        <div id="line"></div>
+        <a role="button" class="trans7" onclick="gC()">Obtén Tu Cupón</a>
+      </section>
+    </div>
+    <!-- GENERANDO CUPÓN -->
+    <div id="cupon" class="standarWidth" style="display:block">
+      <section id="pCupon1" class="producto flexDisplay">
+        <div id="seqCupon" class="wrap"></div>
+        <div id="counter">
+
+        </div>
       </section>
     </div>
     <!-- FOOTER -->
     <footer class="flexDisplay">
-      <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones <span>  |  </span></a>
-      <p>Hidrátate sanamente | ® Marca Registrada </p>
+      <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
+      <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
     </footer>
     <!-- SCRIPT -->
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.js" charset="utf-8"></script>
     <script type="text/javascript">
       window.onload = function(){
-        detectBrowser();
+        dB();
       }
     </script>
   </body>
