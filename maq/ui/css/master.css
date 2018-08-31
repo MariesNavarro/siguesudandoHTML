@@ -1,0 +1,198 @@
+/*
+Theme: Sigue sudando v2
+Version: 2
+Author: Oet Capital
+22 de Julio
+*/
+/*
+cmain #ff4d00;
+*/
+/* #block{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image:url('../desktop.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 999999;
+  opacity: 0.5;
+} */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,
+sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption,
+footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block; }
+ol, ul {list-style: none; }
+#s{ display: none; }
+* {margin: 0; padding: 0; box-sizing: border-box; }
+* a {cursor: pointer; text-decoration: none; color: #000;}
+* i {font-style: italic; }
+* p { font-size: 1rem;}
+.flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
+.standarWidth{ width: 100vw; min-width: 250px; }
+body{
+  font-family: 'GMedium', serif;
+  position: relative;
+  background: #ff4d00;
+  color: #000;
+}
+#loading{
+  position:fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #ff4d00;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  z-index: 5000;
+  display: none;
+}
+#loading>img{
+  width: 25%;
+  max-width: 280px;
+  min-width: 110px;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in 1s forwards;
+  -moz-animation: fadeIn 1s ease-in 1s forwards;
+  -ms-animation: fadeIn 1s ease-in 1s forwards;
+  -o-animation: fadeIn 1s ease-in 1s forwards;
+  animation: fadeIn 1s ease-in 1s forwards;
+}
+#loading>p{
+  font-size: 1.1rem;
+  margin: 10px auto 10px auto;
+  opacity: 0;
+  -webkit-animation: fadeIn 1s ease-in 1.3s forwards;
+  -moz-animation: fadeIn 1s ease-in 1.3s forwards;
+  -ms-animation: fadeIn 1s ease-in 1.3s forwards;
+  -o-animation: fadeIn 1s ease-in 1.3s forwards;
+  animation: fadeIn 1s ease-in 1.3s forwards;
+}
+nav{
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: calc(100vw - 30px);
+  min-width: 250px;
+  height: 40px;
+  background: transparent;
+  z-index: 4000;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+}
+nav>p{ text-transform: uppercase; font-size: 0.7rem; }
+nav>h1{ display: block; }
+nav>h1>a>img{ width: 30px; }
+nav>#blk{ width: 30px; }
+footer{
+  position: fixed;
+  bottom: 5px;
+  left: 15px;
+  width: calc(100vw - 30px);
+  min-width: 250px;
+  height: 40px;
+  background: transparent;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+footer>a{ text-decoration: underline;}
+footer>a, footer>p{ font-size: 0.8rem; font-family: 'GLight', serif; }
+footer>a>span{ display: none }
+
+nav>p{ text-transform: uppercase; font-size: 0.7rem; }
+@media (min-width: 350px){ nav>p{ text-transform: uppercase; font-size: 0.9rem; } }
+#carrusel{
+  position: fixed;
+  height: 100vh;
+}
+.producto{
+  width: 100%;
+  height: 100%;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  background: #ff4d00;
+}
+.producto>.wrap{
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+  background-image: url('../img/demo/seqHomeMob.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 1px solid red;
+}
+/* DESKTOP */
+@media (min-width: 960px){
+  .producto>.wrap{
+    background-image: url('../img/demo/seqHomeDesk.jpg');
+  }
+  nav{
+    top: 30px;
+    left: 30px;
+    width: calc(100vw - 60px);
+  }
+  nav>p{ font-size: 1.3rem; }
+  nav>h1>a>img{ width: 60px; }
+  nav>#blk{ width: 60px; }
+  footer{
+    bottom: 15px;
+    height: 30px;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -o-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+  }
+  footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
+  footer>a>span{ display: block; margin: 0 3px;}
+}
+@-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-ms-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@-o-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+@keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
