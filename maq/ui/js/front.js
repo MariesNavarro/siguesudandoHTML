@@ -31,9 +31,12 @@ function loadingCoupon(){
   var interval = setInterval(function(){
     n++;
     counter.innerHTML = n;
-    if(n===100) {clearInterval(interval);
-      generando.style.display = "none";
-      displayCoupon()
+    if(n===100) {
+      clearInterval(interval);
+      setTimeout(function(){
+        generando.style.display = "none";
+        displayCoupon();
+      },10000);
     }
   });
 }
