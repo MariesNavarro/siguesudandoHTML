@@ -17,6 +17,13 @@ function detectBrowser(){
     // setRatio("d");
   }
 }
+
+function generateSeqHome(){
+  var wr = _("producto1");
+}
+
+
+
 function generateCoupon(){
   var tx = _('#stateText').innerHTML = "Cargando Cupón...";
   var carrusel = _('#carrusel').style.display = "none";

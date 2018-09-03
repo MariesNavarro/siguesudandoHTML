@@ -167,7 +167,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   background-position: center;
   background-size: contain;
 }
-#seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); }
+/* #seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); } */
 #seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
 .buttonG{
   font-family: 'GBlack', serif;
@@ -318,7 +318,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
-  #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); }
+  /* #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); } */
   #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
   .buttonG{
     font-size: 1.5rem;
