@@ -80,6 +80,39 @@ function getpromoestado($ip,$promo)
 
 
 }
+function getpromoestadotest($ip,$promo)
+{
+    $query1 = "SELECT * from gtrd_promociones_estados where id_promo=".$promo.";";
+	 $result1 = mysql_query($query1);
+	if($result1)
+	{
+        $salida          = 0;
+        $country_code    = '';
+        $ip_address      = $ip;
+        $country_name         = 'Local';
+        $country_city    = '';
+        $country_region  = '';
+        $estado='';
+        //$salida = get_country_local($country_code,$ip_address,$lang,$country_name,$id_group); // busqueda en BD local
+        //if ($salida==0) {
+        $salida = get_country_api($country_code,$ip_address,$country_region); // busqueda en api de google
+        $estado=$country_region;//equivalencia_estados_api($country_code,$region);
+
+        if($salida==0)//$query2 = "SELECT * from gtrd_promociones_estados where id_promo=".$promo." and estado='".$estado."' and  pais='".$country_code."';";
+        {
+          return "Ocurrio error al obtener estado";
+        }
+        else {
+          return "LA ip es: ".$ip_address." el Estado es:".$estado;
+        }
+
+	}
+  else {
+        return "No entro el resultado query Ocurrio error al obtener estado ".$query1;// code...
+  }
+
+
+}
 function update_codigos($codigo,$client,$idClient)
 {
 	$query ="UPDATE  gtrd_cupones SET estatus = 1,ip='".$client."',huella_digital='".$idClient."',fecha_entregado=NOW() WHERE codigo = '".$codigo."'";

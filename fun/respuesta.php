@@ -1,6 +1,7 @@
 <?php ob_start("comprimir_pagina");?>
 <?php
     require_once('lib/db.php');
+    require_once('lib/barcode.php');
     $htmlresult='';
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
          $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -11,7 +12,7 @@
      }
      $idClient = $_POST['codigo'];
      $idprom=$_POST['promo'];
-     $findip=getpromoestado($ip,$promo);
+     $findip=getpromoestado($ip,$idprom);
      if(mysql_num_rows($findip)>0)
      {
        while($datos1 = mysql_fetch_array($findip)) {
@@ -22,7 +23,18 @@
                 while($datos = mysql_fetch_array($result)) {
                   if($datos['codigo']!='')
                   {
-                    echo '<img src="lib/barcode.php?text='.$datos['codigo'].'&size=450&orientation=horizontal&codetype=Code128&print=true&sizefactor=3"/><br/>'; 
+                    $filepath = "";
+                    $text ="".$datos['codigo']."";
+                    $size = "450";
+                    $orientation = "horizontal";
+                    $code_type = "code128";
+                    $print = true;
+                    $sizefactor = "3";
+                    $ismob = true;
+
+                    barcode( $filepath, $text, $size, $orientation, $code_type, $print, $sizefactor,$ismob);
+
+                    echo '<img src="img/promoMob'.$datos['codigo'].'.png"/><br/><br/><br/><br/><br/><img src="img/promo'.$datos['codigo'].'.png"/><a href="img/promoMob'.$datos['codigo'].'.png" download>Descargar</a>';
                     update_codigos($datos['codigo'],$ip,$idClient);
                   }
                   else

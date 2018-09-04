@@ -1,5 +1,6 @@
 <?php
 
+
 $filepath = (isset($_GET["filepath"])?$_GET["filepath"]:"");
 $text = (isset($_GET["text"])?$_GET["text"]:"0");
 $size = (isset($_GET["size"])?$_GET["size"]:"20");
@@ -7,10 +8,12 @@ $orientation = (isset($_GET["orientation"])?$_GET["orientation"]:"horizontal");
 $code_type = (isset($_GET["codetype"])?$_GET["codetype"]:"code128");
 $print = (isset($_GET["print"])&&$_GET["print"]=='true'?true:false);
 $sizefactor = (isset($_GET["sizefactor"])?$_GET["sizefactor"]:"1");
+$ismob = (isset($_GET["ismob"])&&$_GET["ismob"]=='true'?true:false);
 
-barcode( $filepath, $text, $size, $orientation, $code_type, $print, $sizefactor );
+//barcode( $filepath, $text, $size, $orientation, $code_type, $print, $sizefactor,$ismob );
 
-function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128", $print=false, $SizeFactor=1 ) {
+
+function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal", $code_type="code128", $print=false, $SizeFactor=1,$ismob=false ) {
 	$code_string = "";
 
 	if ( in_array(strtolower($code_type), array("code128", "code128b")) ) {
@@ -115,10 +118,11 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 	$white = imagecolorallocate ($image, 255, 255, 255);
 
 	imagefill( $image, 0, 0, $white );
-	if ( $print ) {
-		//imagestring($image,5, 225, $img_height, $text, $black );
-		imagettftext ($image ,36 , 0 , 128 , $img_height , $black , "../font/g-black.ttf" , $text );
-	}
+			if ( $print ) {
+				//imagestring($image,5, 225, $img_height, $text, $black );
+				imagettftext ($image ,36 , 0 , 118 , $img_height , $black ,"./font/g-black.ttf" , $text );
+			}
+
 
 	$location = 10;
 	for ( $position = 1 ; $position <= strlen($code_string); $position++ ) {
@@ -133,29 +137,35 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 	}
 
 	// Draw barcode to the screen or save in a file
-	$filepath='../img/'.$text.'.png';
-	if ( $filepath=="" ) {
-		header ('Content-type: image/png');
-		imagepng($image);
-		imagedestroy($image);
-	} else {
-		imagepng($image,$filepath);
-		imagedestroy($image);
-	}
-	encimar($text);
-}
-function encimar($nombre)
-{
-	$stamp = imagecreatefrompng('../img/'.$nombre.'.png');
-  $im = imagecreatefrompng('../img/promoDesk.png');
-  $marge_right = 162;
-  $marge_bottom = 48;
-  $sx = imagesx($stamp);
-  $sy = imagesy($stamp);
-  imagecopy($im, $stamp, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($stamp), imagesy($stamp));
-  header('Content-type: image/phg');
-  imagepng($im);
-  imagedestroy($im);
-}
+		//imagepng($image,$filepath);
+		//
+		//$stamp = imagecreatefrompng('./img/'.$nombre.'mob.png');
+		$im = imagecreatefrompng('./img/promoMob.png');
+		$marge_right = 180;
+		$marge_bottom = 160;
+		$sx = imagesx($image);
+		$sy = imagesy($image);
+		imagecopy($im, $image, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($image), imagesy($image));
+		$newfilemob='./img/promoMob'.$text.'.png';
+		imagepng($im,$newfilemob);
 
+
+		//$stamp = imagecreatefrompng('./img/'.$nombre.'.png');
+		$im2 = imagecreatefrompng('./img/promoDesk.png');
+		$marge_right2 = 162;
+		$marge_bottom2 = 48;
+		$sx2 = imagesx($image);
+		$sy2 = imagesy($image);
+		imagecopy($im2, $image, imagesx($im2) - $sx2 - $marge_right2, imagesy($im2) - $sy2 - $marge_bottom2, 0, 0, imagesx($image), imagesy($image));
+		$newfile='./img/promo'.$text.'.png';
+		imagepng($im2,$newfile);
+		//imagedestroy($im);
+		//return $newfilemob;
+		//header('Content-type: image/phg');
+		//imagepng($im);
+		imagedestroy($im2);
+		 imagedestroy($im);
+		 imagedestroy($image);
+
+}
 ?>
