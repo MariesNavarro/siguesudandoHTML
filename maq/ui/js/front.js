@@ -4,13 +4,7 @@ function _(el){return document.querySelector(el); }
 function __(el){return document.querySelectorAll(el); }
 function detectBrowser(){
   var cB = false;
-  if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) checkMobile = true;
-  var r = {
-    wM: "480",
-    hM: "854",
-    wD: "1920",
-    hD: "1080"
-  }
+  if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
   if(cB){
     // setRatio("m");
   } else {
@@ -18,8 +12,46 @@ function detectBrowser(){
   }
 }
 
+//detectBrowser
+
+//Si es móvil sólo cargar secuencia móvil (baja)
+
+//Si es desktop detectar si es:
+//menor a 960px cargar secuencia movil (alta)
+//mayor a 960px cargar secuencia desktop
+
+//Resize solo si es escritorio****
+
+//Cuando termino de cargar imagenes generarSeqHome
+//El loading ya hizo display none
+generateSeqHome();
 function generateSeqHome(){
-  var wr = _("producto1");
+  var wr = _("#producto1>.wrap"), frame;
+  for (var i = 28; i >= 0; i--) {
+    frame = document.createElement("DIV");
+    frame.setAttribute("class", "frame");
+    frame.style.backgroundImage = "url('ui/img/seqMob/mob-"+i+".jpg')";
+    wr.appendChild(frame);
+  }
+  setTimeout(function(){
+    startSeqHome();
+  },1000);
+}
+
+// for (var i = 0; i < array.length; i++) {
+//   array[i]
+// }
+
+
+function startSeqHome(){
+  var seq = __(".frame"), c = 28;
+  var loop = setInterval(function(){
+    seq[c].style.display = "none";
+    c--;
+    if(c === 0){
+      clearInterval(loop);
+    }
+  },83.3333333333);
 }
 
 
