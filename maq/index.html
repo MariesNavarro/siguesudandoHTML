@@ -31,7 +31,7 @@ Sigue sudando v2
   <body id="index" class="standarWidth">
     <!-- <div id="block"></div> -->
     <!-- LOADING -->
-    <div id="loading" class="flexDisplay standarWidth">
+    <div id="loading" class="flexDisplay standarWidth trans7">
       <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280">
       <p>Cargando...</p>
     </div>
@@ -47,9 +47,9 @@ Sigue sudando v2
     </nav>
     <!-- PRODUCTOS -->
     <div id="carrusel" class="standarWidth" style="display:block">
-      <section id="producto1" class="producto flexDisplay">
+      <section id="producto1" class="producto flexDisplay trans7">
         <div class="wrap">
-          
+
         </div>
         <a role="button" class="buttonG trans7" onclick="generateCoupon()">Obtén Tu Cupón</a>
       </section>
@@ -73,10 +73,10 @@ Sigue sudando v2
       <div class="flexDisplay">
         <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120">
         <p>
-          Ya tienes más <span>Gatorade</span> para seguir sudando
+          Ya tienes más <span>Gatorade <span>®</span></span> para seguir sudando
         </p>
         <p>
-          <span>#siguesudando</span>
+          <span>#siguesudando<span>®</span></span>
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
@@ -96,9 +96,9 @@ Sigue sudando v2
     <!-- SCRIPT -->
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.js" charset="utf-8"></script>
-    <script type="text/javascript">
+    <script>
       window.onload = function(){
-        detectBrowser();
+        initFront();
       }
     </script>
   </body>

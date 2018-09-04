@@ -2,57 +2,99 @@
 window.console.log("%cCoded by Oet Capital", "color:#fff;  font-size: 10px; background:#000; padding:20px;");
 function _(el){return document.querySelector(el); }
 function __(el){return document.querySelectorAll(el); }
-function detectBrowser(){
-  var cB = false;
+window.requestAnimFrame = (function(){
+return  window.requestAnimationFrame       ||
+    		window.webkitRequestAnimationFrame ||
+    		window.mozRequestAnimationFrame    ||
+    		function( callback ){
+    			window.setTimeout(callback, 1000 / 60);
+      	};
+})();
+
+function initFront(){
+  var cB = false,
+      w = window.innerWidth;
   if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
   if(cB){
-    // setRatio("m");
+    loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
   } else {
-    // setRatio("d");
-  }
-}
-
-//detectBrowser
-
-//Si es móvil sólo cargar secuencia móvil (baja)
-
-//Si es desktop detectar si es:
-//menor a 960px cargar secuencia movil (alta)
-//mayor a 960px cargar secuencia desktop
-
-//Resize solo si es escritorio****
-
-//Cuando termino de cargar imagenes generarSeqHome
-//El loading ya hizo display none
-generateSeqHome();
-function generateSeqHome(){
-  var wr = _("#producto1>.wrap"), frame;
-  for (var i = 28; i >= 0; i--) {
-    frame = document.createElement("DIV");
-    frame.setAttribute("class", "frame");
-    frame.style.backgroundImage = "url('ui/img/seqMob/mob-"+i+".jpg')";
-    wr.appendChild(frame);
-  }
-  setTimeout(function(){
-    startSeqHome();
-  },1000);
-}
-
-// for (var i = 0; i < array.length; i++) {
-//   array[i]
-// }
-
-
-function startSeqHome(){
-  var seq = __(".frame"), c = 28;
-  var loop = setInterval(function(){
-    seq[c].style.display = "none";
-    c--;
-    if(c === 0){
-      clearInterval(loop);
+    if(w < 960){
+      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+    } else {
+      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "desktopHome");
     }
-  },83.3333333333);
+  }
+  function loadingSeq(url, ext, len, dis){
+    var xhrList = [], c = 0;
+    for(var i = 0; i < len; i++){
+  	xhrList[i] = new XMLHttpRequest();
+  	xhrList[i].open("GET", url+i+ext, true);
+  	xhrList[i].responseType = "blob";
+      	xhrList[i].onload = function (e){
+        	if(this.readyState == 4){
+            c++;
+            if(c === len && dis === "desktopHome"){
+              displaySeqHome(url, ext, len, dis);
+            } else if (c === len && dis === "mobileHome") {
+              displaySeqHome(url, ext, len, dis);
+            }
+        	}
+      }
+      xhrList[i].send();
+    }
+  }//loadingSeq
+  function generateSeqHome(url, ext, len){
+    var wr = _("#producto1>.wrap"), frame;
+    for (var i = len; i >= 0; i--) {
+      frame = document.createElement("DIV");
+      frame.setAttribute("class", "frame");
+      frame.style.backgroundImage = "url('"+url+i+ext+"')";
+      wr.appendChild(frame);
+    }
+  }//generateSeqHome
+  function displaySeqHome(url, ext, len, dis){
+    var wr = _("#loading");
+    generateSeqHome(url, ext, len);
+    setTimeout(function(){
+      wr.style.opacity = 0;
+      setTimeout(function(){
+        wr.style.display = "none";
+        requestAnimationFrame(startSeqHome);
+      },700);
+    },2000);
+  }//displaySeqHome
 }
+
+
+
+
+
+
+//Lanzar carga de imagenes seqHome
+//Si todas han terminado de cargar entonces:
+//-
+
+//¿Cuándo generamos?
+
+var cHome = 24;
+var fps = 12;
+function startSeqHome(){
+  var seq = __(".frame");
+  seq[cHome].style.display = "none";
+  cHome--;
+  if(cHome !== 0){
+    setTimeout(function(){
+      requestAnimationFrame(startSeqHome);
+    },1000/fps);
+  }
+}
+
+
+
+
+
+
+
 
 
 
@@ -75,7 +117,7 @@ function loadingCoupon(){
       setTimeout(function(){
         generando.style.display = "none";
         displayCoupon();
-      },10000);
+      },1000);
     }
   });
 }
