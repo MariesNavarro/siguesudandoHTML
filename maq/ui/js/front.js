@@ -10,10 +10,11 @@ return  window.requestAnimationFrame       ||
     			window.setTimeout(callback, 1000 / 60);
       	};
 })();
-
 function initFront(){
   var cB = false,
-      w = window.innerWidth;
+      w = window.innerWidth,
+      fps = 12,
+      frames;
   if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
   if(cB){
     loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
@@ -21,10 +22,58 @@ function initFront(){
     if(w < 960){
       loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
     } else {
-      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "desktopHome");
+      // loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+      loadingSeq("ui/img/seqHome/desk-", ".jpg", 28, "desktopHome");
     }
   }
+  function displaySeqHome(url, ext, len, dis){
+    var wr = _("#loading"), wrap = _("#producto1>.wrap");
+    generateSeqHome(url, ext, len);
+    setTimeout(function(){
+      wr.style.opacity = 0;
+      setTimeout(function(){
+        wr.style.display = "none";
+        wrap.style.opacity = "1";
+        requestAnimationFrame(animationSeqHome);
+      },700);
+    },2000);
+  }//displaySeqHome
+  function generateSeqHome(url, ext, len){
+    var wr = _("#producto1>.wrap"), frame;
+    for (var i = len; i >= 0; i--) {
+      frame = document.createElement("DIV");
+      frame.setAttribute("class", "frame");
+      frame.style.backgroundImage = "url('"+url+i+ext+"')";
+      wr.appendChild(frame);
+    }
+  }//generateSeqHome
+  function animationSeqHome(){
+    var seq = __(".frame"), menu = _("#menu"), footer = _("#footer");
+    seq[frames].style.display = "none";
+    seq[frames].setAttribute("class", "remove");
+    frames--;
+    if(frames !== 0){
+      setTimeout(function(){
+        requestAnimationFrame(animationSeqHome);
+      },1000/fps);
+    }
+    if(frames === 0){
+      footer.style.opacity = "1";
+      menu.style.opacity = "1";
+      cleanSeq();
+    }
+  }//animationSeqHome
+  function cleanSeq(){
+    var els = __(".remove");
+    for (var i = 0; i < els.length; i++) {
+      els[i].parentNode.removeChild(els[i]);
+    }
+    var el = __(".frame");
+    el[0].setAttribute("id", "seqHome");
+    el[0].setAttribute("style", " ");
+  }//cleanSeq
   function loadingSeq(url, ext, len, dis){
+    frames = len;
     var xhrList = [], c = 0;
     for(var i = 0; i < len; i++){
   	xhrList[i] = new XMLHttpRequest();
@@ -43,51 +92,8 @@ function initFront(){
       xhrList[i].send();
     }
   }//loadingSeq
-  function generateSeqHome(url, ext, len){
-    var wr = _("#producto1>.wrap"), frame;
-    for (var i = len; i >= 0; i--) {
-      frame = document.createElement("DIV");
-      frame.setAttribute("class", "frame");
-      frame.style.backgroundImage = "url('"+url+i+ext+"')";
-      wr.appendChild(frame);
-    }
-  }//generateSeqHome
-  function displaySeqHome(url, ext, len, dis){
-    var wr = _("#loading");
-    generateSeqHome(url, ext, len);
-    setTimeout(function(){
-      wr.style.opacity = 0;
-      setTimeout(function(){
-        wr.style.display = "none";
-        requestAnimationFrame(startSeqHome);
-      },700);
-    },2000);
-  }//displaySeqHome
 }
 
-
-
-
-
-
-//Lanzar carga de imagenes seqHome
-//Si todas han terminado de cargar entonces:
-//-
-
-//¿Cuándo generamos?
-
-var cHome = 24;
-var fps = 12;
-function startSeqHome(){
-  var seq = __(".frame");
-  seq[cHome].style.display = "none";
-  cHome--;
-  if(cHome !== 0){
-    setTimeout(function(){
-      requestAnimationFrame(startSeqHome);
-    },1000/fps);
-  }
-}
 
 
 

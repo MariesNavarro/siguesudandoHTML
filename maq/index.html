@@ -36,7 +36,7 @@ Sigue sudando v2
       <p>Cargando...</p>
     </div>
     <!-- MENU -->
-    <nav class="flexDisplay">
+    <nav id="menu" class="flexDisplay trans7">
       <h1>
         <a href="index.html"> <!-- CAMBIAR!!!!! -->
           <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
@@ -48,14 +48,12 @@ Sigue sudando v2
     <!-- PRODUCTOS -->
     <div id="carrusel" class="standarWidth" style="display:block">
       <section id="producto1" class="producto flexDisplay trans7">
-        <div class="wrap">
-
-        </div>
-        <a role="button" class="buttonG trans7" onclick="generateCoupon()">Obtén Tu Cupón</a>
+        <div class="wrap trans7"></div>
+        <a role="button" id="buttonHome" class="buttonG scaleUpButton">Obtén Tu Cupón</a>
       </section>
     </div>
     <!-- GENERANDO CUPÓN -->
-    <div id="generandocupon" class="standarWidth trans7" style="display:none">
+    <div id="generandocupon" class="standarWidth" style="display:none">
       <section id="generando1" class="producto flexDisplay">
         <div id="seqCupon" class="wrap"></div>
         <div id="counter" class="flexDisplay">
@@ -89,7 +87,7 @@ Sigue sudando v2
       </div>
     </div>
     <!-- FOOTER -->
-    <footer class="flexDisplay">
+    <footer id="footer" class="flexDisplay trans7">
       <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
       <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
     </footer>

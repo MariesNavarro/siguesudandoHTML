@@ -106,6 +106,7 @@ nav{
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
+  opacity: 0;
 }
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 nav>h1{ display: block; }
@@ -134,6 +135,7 @@ footer{
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
+  opacity: 0;
 }
 footer>a{ text-decoration: underline;}
 footer>a, footer>p{ font-size: 0.8rem; font-family: 'GLight', serif; }
@@ -175,7 +177,9 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   background-position: center;
   background-size: contain;
 }
-/* #seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); } */
+.producto>.wrap>.remove{ display: none !important; }
+#producto1>.wrap{ opacity: 0; }
+#seqHome{ background-image: url('../img/seqHome/mob-24.jpg'); }
 #seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
 .buttonG{
   font-family: 'GBlack', serif;
@@ -193,7 +197,21 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   background: #fff;
   left: calc(50% - 100px);
 }
-.buttonG:hover{ opacity: 0.7; }
+#buttonHome{
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.scaleUpButton{
+  -webkit-animation: scaleUp 0.7s ease-out 5s forwards;
+  -moz-animation: scaleUp 0.7s ease-out 5s forwards;
+  -ms-animation: scaleUp 0.7s ease-out 5s forwards;
+  -o-animation: scaleUp 0.7s ease-out 5s forwards;
+  animation: scaleUp 0.7s ease-out 5s forwards;
+}
 #carrusel>section>.buttonG{ bottom: 120px; }
 #generandocupon>section>#counter{
   position: absolute;
@@ -320,7 +338,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
-  /* #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); } */
+  #seqHome{ background-image: url('../img/seqHome/desk-28.jpg'); }
   #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
   .buttonG{
     font-size: 1.5rem;
@@ -331,11 +349,40 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
     left: calc(50% - 150px);
   }
 }
+/* ANIMATIONS */
 @-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-ms-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-o-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+
+
+@keyframes scaleUp {
+  0%{
+    opacity: 0;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+  }
+  65%{
+    opacity: 0.8;
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100%{
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
 /* BASES */
 #bases{
   padding-bottom: 100px;
