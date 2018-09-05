@@ -121,6 +121,7 @@ footer{
   min-width: 250px;
   height: 40px;
   background: transparent;
+  z-index: 4000;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
@@ -149,6 +150,8 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   position: fixed;
   height: 100vh;
 }
+#carrusel{  z-index: 3; }
+#generandocupon{ z-index: 2;}
 .producto{
   position: relative;
   width: 100%;
@@ -172,16 +175,19 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 }
 .producto>.wrap>div{
   position: absolute;
+  top: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100px);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: contain;
+  /* border: 1px solid red; */
 }
+
 .producto>.wrap>.remove{ display: none !important; }
 #producto1>.wrap{ opacity: 0; }
+#loadCoupon1>.wrap{opacity: 0; }
 #seqHome{ background-image: url('../img/seqHome/mob-24.jpg'); }
-#seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
 .buttonG{
   font-family: 'GBlack', serif;
   font-size: 1.1rem;
@@ -229,9 +235,10 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
+
 #generandocupon>section>#counter{
   position: absolute;
-  bottom: 60px;
+  bottom: 125px;
   width: 60px;
   height: 60px;
   left: calc(50% - 30px);
@@ -355,7 +362,6 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
   #seqHome{ background-image: url('../img/seqHome/desk-28.jpg'); }
-  #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
   .buttonG{
     font-size: 1.5rem;
     width: 300px;

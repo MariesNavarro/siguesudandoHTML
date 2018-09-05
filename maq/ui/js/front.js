@@ -13,25 +13,29 @@ return  window.requestAnimationFrame       ||
 function initFront(){
   var cB = false,
       w = window.innerWidth,
-      xhrList = [],
       fps = 12,
-      frames,
+      fpsHome,
+      fpsCoupon,
+      xhrListHome = [],
+      xhrListCoupon = [],
       buttonHome = _("#buttonHome");
   var detectBrowser = (function(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
-      loadingSeqHome("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+      buttonHome.addEventListener("touchstart", generateCoupon);
+      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
     } else {
+      buttonHome.addEventListener("click", generateCoupon);
       if(w < 960){
-        loadingSeqHome("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+        loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
       } else {
-        loadingSeqHome("ui/img/seqHome/desk-", ".jpg", 28, "desktopHome");
+        loadingSeq("ui/img/seqHome/desk-", ".jpg", 28, "home");
       }
     }
   })();
   function displaySeqHome(url, ext, len, dis){
     var wr = _("#loading"), wrap = _("#producto1>.wrap");
-    generateSeqHome(url, ext, len);
+    generateSeq(url, ext, len, "#producto1>.wrap");
     setTimeout(function(){
       wr.style.opacity = 0;
       setTimeout(function(){
@@ -41,40 +45,50 @@ function initFront(){
       },700);
     },2000);
   }//displaySeqHome
-  function generateSeqHome(url, ext, len){
-    var wr = _("#producto1>.wrap"), frame;
+  function generateSeq(url, ext, len, parent){
+    var wr = _(parent), frameDiv;
     for (var i = len; i >= 0; i--) {
-      frame = document.createElement("DIV");
-      frame.setAttribute("class", "frame");
-      frame.style.backgroundImage = "url('"+url+i+ext+"')";
-      wr.appendChild(frame);
+      frameDiv = document.createElement("DIV");
+      frameDiv.setAttribute("class", "frame");
+      frameDiv.style.backgroundImage = "url('"+url+i+ext+"')";
+      wr.appendChild(frameDiv);
     }
-  }//generateSeqHome
+  }//generateSeq
   function animationSeqHome(){
     var seq = __(".frame"),
         menu = _("#menu"),
         footer = _("#footer");
-    seq[frames].style.display = "none";
-    seq[frames].setAttribute("class", "remove");
-    frames--;
-    if(frames !== 0){
+    seq[fpsHome].style.display = "none";
+    seq[fpsHome].setAttribute("class", "remove");
+    fpsHome--;
+    if(fpsHome !== 0){
       setTimeout(function(){
         requestAnimationFrame(animationSeqHome);
       },1000/fps);
     }
-    if(frames === 2){
+    if(fpsHome === 2){
       buttonHome.setAttribute("class", "buttonG scaleUpButtonAnimation");
       setTimeout(function(){
         buttonHome.setAttribute("class", "buttonG scaleUpButtonDefault trans3");
       },1200);
     }
-    if(frames === 0){
-      loadingSeqHome("ui/img/seqLoadCoupon/desk-", ".jpg", 26, "deskLoadCoupon");
+    if(fpsHome === 0){
       footer.style.opacity = "1";
       menu.style.opacity = "1";
       cleanSeq();
     }
   }//animationSeqHome
+  function animationSeqCoupon(){
+      var seq = __(".frame");
+      seq[fpsCoupon].style.display = "none";
+      seq[fpsCoupon].setAttribute("class", "remove");
+      fpsCoupon--;
+      if(fpsCoupon !== 0){
+        setTimeout(function(){
+          requestAnimationFrame(animationSeqCoupon);
+        },1000/fps);
+      }
+  }
   function cleanSeq(){
     var els = __(".remove");
     for (var i = 0; i < els.length; i++) {
@@ -83,62 +97,51 @@ function initFront(){
     var el = __(".frame");
     el[0].setAttribute("id", "seqHome");
     el[0].setAttribute("style", " ");
+    el[0].setAttribute("class", " ");
   }//cleanSeq
   function generateCoupon(){
     var tx = _('#stateText').innerHTML = "Cargando Cupón...";
     var carrusel = _('#carrusel').style.display = "none";
-    var generando = _("#generandocupon").style.display = "block";
+    var loadCoupon1 = _("#loadCoupon1>.wrap").style.opacity = "1";
+    setTimeout(function(){
+      animationSeqCoupon();
+    },700);
     // loadingCoupon(); //Quitar este comentario para generar cupon
   }//generateCoupon
-  function loadingSeqHome(url, ext, len, dis){
-    frames = len;
+  function loadingSeq(url, ext, len, seq){
+    if(seq === "home"){
+      fpsHome = len;
+    } else {
+      fpsCoupon = len;
+    }
     var c = 0;
     for(var i = 0; i < len; i++){
-  	xhrList[i] = new XMLHttpRequest();
-  	xhrList[i].open("GET", url+i+ext, true);
-  	xhrList[i].responseType = "blob";
-      	xhrList[i].onload = function (e){
+  	xhrListHome[i] = new XMLHttpRequest();
+  	xhrListHome[i].open("GET", url+i+ext, true);
+  	xhrListHome[i].responseType = "blob";
+      	xhrListHome[i].onload = function (e){
         	if(this.readyState == 4){
             c++;
-            if(c === len && dis === "desktopHome"){
-              displaySeqHome(url, ext, len, dis);
-            } else if (c === len && dis === "mobileHome") {
-              displaySeqHome(url, ext, len, dis);
+            //home
+            if(c === len && seq === "home"){
+              displaySeqHome(url, ext, len);
+              if(cB === true){
+                loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
+              } else if (cB === false && w < 960) {
+                loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
+              } else if(cB === false && w > 960){
+                loadingSeq("ui/img/seqLoadCoupon/desk-", ".jpg", 26, "coupon");
+              }
             }
-
-            else if (c === len && dis === "mobLoadCoupon") {
-              console.log("Se han cargado las imagenes de load coupon MOBILE");
-            } else if (c === len && dis === "deskLoadCoupon") {
-              console.log("Se han cargado las imagenes de load coupon DESKTOP");
+            //coupon
+            else if (c === len && seq === "coupon") {
+              generateSeq(url, ext, len, "#loadCoupon1>.wrap");
             }
         	}
       }
-      xhrList[i].send();
+      xhrListHome[i].send();
     }
-  }//loadingSeqHome
-  function loadingSeqCoupon(url, ext, len, dis){
-    frames = len;
-    var xhrList = [], c = 0;
-    for(var i = 0; i < len; i++){
-  	xhrList[i] = new XMLHttpRequest();
-  	xhrList[i].open("GET", url+i+ext, true);
-  	xhrList[i].responseType = "blob";
-      	xhrList[i].onload = function (e){
-        	if(this.readyState == 4){
-            c++;
-            if(c === len && dis === "desktopHome"){
-              displaySeqHome(url, ext, len, dis);
-            } else if (c === len && dis === "mobileHome") {
-              displaySeqHome(url, ext, len, dis);
-            }
-        	}
-      }
-      xhrList[i].send();
-    }
-  }//loadingSeqCoupon
-
-  /* EVENTS */
-  buttonHome.addEventListener("click", generateCoupon);
+  }//loadingSeq
 }
 
 
@@ -147,10 +150,9 @@ function initFront(){
 
 
 
-
-
-
-
+function detectLandscape(){
+  
+}
 
 
 
