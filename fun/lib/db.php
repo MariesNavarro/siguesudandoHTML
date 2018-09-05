@@ -6,14 +6,32 @@ require_once('funciones.php');
 
 
 mysql_set_charset('utf8');
-
 function getcodigo($client,$idClient,$promo)
 {
-     $query1 = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(24*60*60) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
+  $reg;
+  $contador=0;
+  $link=connect();
+  $query1 = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(24*60*60) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
+  $consulta = "select setting,value,NOW(),TIME_TO_SEC(TIMEDIFF(NOW(), value)) valor from bdlt_settings where Module='Validez';";
+  if ($resultado = mysqli_query($link, $consulta)) {
+   while ($fila = mysqli_fetch_row($resultado)) {
+     $reg[$contador]=$fila[3];
+     $cad[$contador]=$fila[1];
+     $contador++;
+    }
+   /* liberar el conjunto de resultados */
+    mysqli_free_result($resultado);
+  }
+  Close($link);
+  return $reg;
+}
+function getcodigo($client,$idClient,$promo)
+{
+   $query1 = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(24*60*60) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
 	 $result1 = mysql_query($query1);
 
-	 //if (mysql_num_rows($result1)<1) {
-    if(true){
+	 if (mysql_num_rows($result1)<1) {
+    //if(true){
        $query     = "SELECT codigo FROM gtrd_cupones where estatus=0 and id_promo=".$promo." LIMIT 1;";
 	   $result = mysql_query($query);
 	   return $result;
@@ -41,6 +59,7 @@ function getcodigo($client,$idClient,$promo)
 function getpromoestado($ip,$promo)
 {
     $query1 = "SELECT * from gtrd_promociones_estados where id_promo=".$promo.";";
+    echo $query1;
 	 $result1 = mysql_query($query1);
 	if($result1)
 	{
@@ -118,5 +137,22 @@ function update_codigos($codigo,$client,$idClient)
 	$query ="UPDATE  gtrd_cupones SET estatus = 1,ip='".$client."',huella_digital='".$idClient."',fecha_entregado=NOW() WHERE codigo = '".$codigo."'";
     $Result = mysql_query($query);
 }
-
+function validafechas(&$cad)
+{
+  $reg;
+  $contador=0;
+  $link=connect();
+  $consulta = "select setting,value,NOW(),TIME_TO_SEC(TIMEDIFF(NOW(), value)) valor from bdlt_settings where Module='Validez';";
+  if ($resultado = mysqli_query($link, $consulta)) {
+   while ($fila = mysqli_fetch_row($resultado)) {
+     $reg[$contador]=$fila[3];
+     $cad[$contador]=$fila[1];
+     $contador++;
+    }
+   /* liberar el conjunto de resultados */
+    mysqli_free_result($resultado);
+  }
+  Close($link);
+  return $reg;
+}
 ?>

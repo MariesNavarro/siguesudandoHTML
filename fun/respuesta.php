@@ -13,6 +13,7 @@
      $idClient = $_POST['codigo'];
      $idprom=$_POST['promo'];
      $findip=getpromoestado($ip,$idprom);
+     //echo $idprom;
      if(mysql_num_rows($findip)>0)
      {
        while($datos1 = mysql_fetch_array($findip)) {

@@ -11,7 +11,7 @@
       fp.get(function(result, components) {
          codigo=result;
       });
-      var promo=1
+      var promo=2
   </script>
 </head>
 <body>
@@ -24,39 +24,39 @@
       $(document).ready(function(){
 
         var dataString = 'codigo=' + codigo + '&promo=' + promo;
-              $.ajax({  
+              $.ajax({
                  type : 'POST',
                  url  : 'respuesta.php',
-                 data:  dataString, 
+                 data:  dataString,
 
-                 success:function(data) {  
+                 success:function(data) {
                       console.log(data);
                      $('#container').html(data).fadeIn();
-                 }  
+                 }
               });
-        });      
+        });
   </script>
 </html>
 <?php
   ob_end_flush();
  function comprimir_pagina($buffer) {
- 
+
     $search = array(
         '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
         '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
         '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
         '/<!--(.|\s)*?-->/' // Borrar comentarios html
     );
- 
+
     $replace = array(
         '>',
         '<',
         '\\1',
         ''
     );
- 
+
     $buffer = preg_replace($search, $replace, $buffer);
- 
+
     return $buffer;
    }
 ?>
