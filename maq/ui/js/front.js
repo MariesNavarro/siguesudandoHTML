@@ -13,19 +13,22 @@ return  window.requestAnimationFrame       ||
 function initFront(){
   var cB = false,
       w = window.innerWidth,
+      xhrList = [],
       fps = 12,
-      frames;
-  if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
-  if(cB){
-    loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
-  } else {
-    if(w < 960){
-      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+      frames,
+      buttonHome = _("#buttonHome");
+  var detectBrowser = (function(){
+    if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
+    if(cB){
+      loadingSeqHome("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
     } else {
-      // loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
-      loadingSeq("ui/img/seqHome/desk-", ".jpg", 28, "desktopHome");
+      if(w < 960){
+        loadingSeqHome("ui/img/seqHome/mob-", ".jpg", 24, "mobileHome");
+      } else {
+        loadingSeqHome("ui/img/seqHome/desk-", ".jpg", 28, "desktopHome");
+      }
     }
-  }
+  })();
   function displaySeqHome(url, ext, len, dis){
     var wr = _("#loading"), wrap = _("#producto1>.wrap");
     generateSeqHome(url, ext, len);
@@ -48,7 +51,9 @@ function initFront(){
     }
   }//generateSeqHome
   function animationSeqHome(){
-    var seq = __(".frame"), menu = _("#menu"), footer = _("#footer");
+    var seq = __(".frame"),
+        menu = _("#menu"),
+        footer = _("#footer");
     seq[frames].style.display = "none";
     seq[frames].setAttribute("class", "remove");
     frames--;
@@ -57,7 +62,14 @@ function initFront(){
         requestAnimationFrame(animationSeqHome);
       },1000/fps);
     }
+    if(frames === 2){
+      buttonHome.setAttribute("class", "buttonG scaleUpButtonAnimation");
+      setTimeout(function(){
+        buttonHome.setAttribute("class", "buttonG scaleUpButtonDefault trans3");
+      },1200);
+    }
     if(frames === 0){
+      loadingSeqHome("ui/img/seqLoadCoupon/desk-", ".jpg", 26, "deskLoadCoupon");
       footer.style.opacity = "1";
       menu.style.opacity = "1";
       cleanSeq();
@@ -72,7 +84,39 @@ function initFront(){
     el[0].setAttribute("id", "seqHome");
     el[0].setAttribute("style", " ");
   }//cleanSeq
-  function loadingSeq(url, ext, len, dis){
+  function generateCoupon(){
+    var tx = _('#stateText').innerHTML = "Cargando Cupón...";
+    var carrusel = _('#carrusel').style.display = "none";
+    var generando = _("#generandocupon").style.display = "block";
+    // loadingCoupon(); //Quitar este comentario para generar cupon
+  }//generateCoupon
+  function loadingSeqHome(url, ext, len, dis){
+    frames = len;
+    var c = 0;
+    for(var i = 0; i < len; i++){
+  	xhrList[i] = new XMLHttpRequest();
+  	xhrList[i].open("GET", url+i+ext, true);
+  	xhrList[i].responseType = "blob";
+      	xhrList[i].onload = function (e){
+        	if(this.readyState == 4){
+            c++;
+            if(c === len && dis === "desktopHome"){
+              displaySeqHome(url, ext, len, dis);
+            } else if (c === len && dis === "mobileHome") {
+              displaySeqHome(url, ext, len, dis);
+            }
+
+            else if (c === len && dis === "mobLoadCoupon") {
+              console.log("Se han cargado las imagenes de load coupon MOBILE");
+            } else if (c === len && dis === "deskLoadCoupon") {
+              console.log("Se han cargado las imagenes de load coupon DESKTOP");
+            }
+        	}
+      }
+      xhrList[i].send();
+    }
+  }//loadingSeqHome
+  function loadingSeqCoupon(url, ext, len, dis){
     frames = len;
     var xhrList = [], c = 0;
     for(var i = 0; i < len; i++){
@@ -91,7 +135,10 @@ function initFront(){
       }
       xhrList[i].send();
     }
-  }//loadingSeq
+  }//loadingSeqCoupon
+
+  /* EVENTS */
+  buttonHome.addEventListener("click", generateCoupon);
 }
 
 
@@ -104,12 +151,8 @@ function initFront(){
 
 
 
-function generateCoupon(){
-  var tx = _('#stateText').innerHTML = "Cargando Cupón...";
-  var carrusel = _('#carrusel').style.display = "none";
-  var generando = _("#generandocupon").style.display = "block";
-  loadingCoupon();
-}
+
+
 
 function loadingCoupon(){
   var generando = _("#generandocupon");
