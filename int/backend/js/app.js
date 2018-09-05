@@ -3,7 +3,7 @@ var MetodoEnum = {
   Obten_Cupon:2
  };
  var codigo='';
- var promo=0;
+ var   promo=1;
 function huella()
 {
   var d1 = new Date();
@@ -11,25 +11,27 @@ function huella()
   fp.get(function(result, components) {
      codigo=result;
   });
-  promo=2;
+
   console.log('Huella '+codigo+' promo '+promo);
 }
 function obtencupon()
 {
   param1=MetodoEnum.Obten_Cupon;
-  cupon(param1);
+  cuponjs(param1);
 }
-function cupon(param1)
+function cuponjs(param1)
 {
   huella();
-  var dataString = 'param1=' + param1 + 'codigo=' + codigo + '&promo=' + promo;
+  var dataString = 'param1=' + param1 + '&codigo=' + codigo + '&promo=' + promo;
         $.ajax({
            type : 'POST',
            url  : 'respuesta.php',
            data:  dataString,
 
            success:function(data) {
+                console.log('hola como estas');
                 console.log(data);
+                loadingCoupon(data);
                //$('#container').html(data).fadeIn();
            }
         });
@@ -41,7 +43,7 @@ function valido()
   ValidateDate(param1);
 }
 function ValidateDate(param1) {
-  var dataString = 'param1=' + param1;
+  var dataString = 'param1=' + param1+ '&promo=' + promo;
   //console.log(dataString);
   $.ajax({
     type : 'POST',
@@ -51,8 +53,9 @@ function ValidateDate(param1) {
       //console.log(data);
       if(data=="SI")
       {
-        generateSeqHome();
-        detectBrowser();
+        //generateSeqHome();
+        //detectBrowser();
+        initFront();
       }
       else
       {

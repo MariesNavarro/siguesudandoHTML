@@ -1,4 +1,4 @@
-/*
+.mensaje/*
 Theme: Sigue sudando v2
 Version: 2
 Author: Oet Capital
@@ -30,6 +30,7 @@ ol, ul {list-style: none; }
 * a {cursor: pointer; text-decoration: none; color: #000;}
 * i {font-style: italic; }
 * p { font-size: 1rem;}
+.trans3{ -webkit-transition: all 0.3s ease-out; -moz-transition: all 0.3s ease-out; -ms-transition: all 0.3s ease-out; -o-transition: all 0.3s ease-out; transition: all 0.3s ease-out; }
 .trans7{-webkit-transition: all 0.7s ease-out; -moz-transition: all 0.7s ease-out; -ms-transition: all 0.7s ease-out; -o-transition: all 0.7s ease-out; transition: all 0.7s ease-out }
 .flexDisplay{display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex }
 .standarWidth{ width: 100vw; min-width: 250px; }
@@ -62,28 +63,30 @@ body{
   -o-justify-content: center;
   justify-content: center;
   z-index: 5000;
-  display: none;
+  opacity: 1;
+  /* display: none; */
 }
 #loading>img{
   width: 25%;
   max-width: 280px;
   min-width: 110px;
   opacity: 0;
-  -webkit-animation: fadeIn 1s ease-in 1s forwards;
-  -moz-animation: fadeIn 1s ease-in 1s forwards;
-  -ms-animation: fadeIn 1s ease-in 1s forwards;
-  -o-animation: fadeIn 1s ease-in 1s forwards;
-  animation: fadeIn 1s ease-in 1s forwards;
+  -webkit-animation: fadeIn 0.7s ease-in 0.7s forwards;
+  -moz-animation: fadeIn 0.7s ease-in 0.7s forwards;
+  -ms-animation: fadeIn 0.7s ease-in 0.7s forwards;
+  -o-animation: fadeIn 0.7s ease-in 0.7s forwards;
+  animation: fadeIn 0.7s ease-in 0.7s forwards;
 }
 #loading>p{
+  color: #fff;
   font-size: 1.1rem;
   margin: 10px auto 10px auto;
   opacity: 0;
-  -webkit-animation: fadeIn 1s ease-in 1.3s forwards;
-  -moz-animation: fadeIn 1s ease-in 1.3s forwards;
-  -ms-animation: fadeIn 1s ease-in 1.3s forwards;
-  -o-animation: fadeIn 1s ease-in 1.3s forwards;
-  animation: fadeIn 1s ease-in 1.3s forwards;
+  -webkit-animation: fadeIn 0.7s ease-in 1.2s forwards;
+  -moz-animation: fadeIn 0.7s ease-in 1.2s forwards;
+  -ms-animation: fadeIn 0.7s ease-in 1.2s forwards;
+  -o-animation: fadeIn 0.7s ease-in 1.2s forwards;
+  animation: fadeIn 0.7s ease-in 1.2s forwards;
 }
 nav{
   position: fixed;
@@ -104,6 +107,7 @@ nav{
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
+  opacity: 0;
 }
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 nav>h1{ display: block; }
@@ -117,6 +121,7 @@ footer{
   min-width: 250px;
   height: 40px;
   background: transparent;
+  z-index: 4000;
   -webkit-flex-direction: column;
   -moz-flex-direction: column;
   -ms-flex-direction: column;
@@ -132,6 +137,7 @@ footer{
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
+  opacity: 0;
 }
 footer>a{ text-decoration: underline;}
 footer>a, footer>p{ font-size: 0.8rem; font-family: 'GLight', serif; }
@@ -139,11 +145,14 @@ footer>a>span{ display: none }
 
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 @media (min-width: 350px){ nav>p{ text-transform: uppercase; font-size: 0.9rem; } }
-#carrusel, #generandocupon, #cupon, #guardado{
+#carrusel, #generandocupon, #cupon, .mensaje{
   background: #ff4d00;
   position: fixed;
   height: 100vh;
 }
+#carrusel{  z-index: 5 }
+#generandocupon{ z-index: 4}
+#horasDiv{ z-index: 3 }
 .producto{
   position: relative;
   width: 100%;
@@ -167,14 +176,19 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 }
 .producto>.wrap>div{
   position: absolute;
+  top: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100px);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center center;
   background-size: contain;
+  /* border: 1px solid red; */
 }
-/* #seqHome{ background-image: url('../img/demo/seqHomeMob.jpg'); } */
-#seqCupon{ background-image: url('../img/demo/seqCuponMob.jpg'); }
+
+.producto>.wrap>.remove{ display: none !important; }
+#producto1>.wrap{ opacity: 0; }
+#loadCoupon1>.wrap{opacity: 0; }
+#seqHome{ background-image: url('../img/seqHome/mob-24.jpg'); }
 .buttonG{
   font-family: 'GBlack', serif;
   font-size: 1.1rem;
@@ -188,20 +202,44 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   text-align: center;
   border-radius: 20px;
   color: #ff4d00;
-  background: #fff;
+  background: rgba(255,255,255,1);
   left: calc(50% - 100px);
 }
-.buttonG:hover{ opacity: 0.7; }
-#carrusel>section>.buttonG{ bottom: 120px; }
-#producto1>#line{
-  position: absolute;
-  bottom: 200px;
-  width: 100vw;
-  height: 1px;
+.scaleUpButtonInit{
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
 }
+.scaleUpButtonDefault{
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+}
+.scaleUpButtonAnimation{
+  -webkit-animation: scaleUp 1s ease-out 0s forwards;
+  -moz-animation: scaleUp 1s ease-out 0s forwards;
+  -ms-animation: scaleUp 1s ease-out 0s forwards;
+  -o-animation: scaleUp 1s ease-out 0s forwards;
+  animation: scaleUp 1s ease-out 0s forwards;
+}
+#carrusel>section>.buttonG{ bottom: 120px; }
+.buttonG:hover{
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
 #generandocupon>section>#counter{
   position: absolute;
-  bottom: 60px;
+  bottom: 125px;
   width: 60px;
   height: 60px;
   left: calc(50% - 30px);
@@ -240,12 +278,11 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-align-items: center;
   align-items: center;
   overflow: hidden;
-  background-image: url('../img/demo/promoMob.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
-#guardado>div{
+.mensaje>div{
   margin-top: 55px;
   width: 100%;
   height: calc(100% - 160px);
@@ -270,7 +307,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-justify-content:space-around;
   justify-content:space-around;
 }
-#guardado>div>p{
+.mensaje>div>p{
   font-family: 'GBold', serif;
   text-transform: uppercase;
   font-size: 2rem;
@@ -278,18 +315,18 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   width: 250px;
   line-height: 1;
 }
-#guardado>div>p>span{
+.mensaje>div>p>span{
   color: #fff;
 }
 @media (min-width: 960px){
-  #guardado>div{
+
+  .mensaje>div{
     margin-top: 70px;
     height: calc(100% - 115px);
   }
   .cupon{
     margin: 75px auto 0 auto;
     height: calc(100% - 250px);
-    background-image: url('../img/demo/promoDesk.png');
   }
   #generandocupon>section>#counter{
     left: calc(50% - 50px);
@@ -324,8 +361,8 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
-  /* #seqHome{ background-image: url('../img/demo/seqHomeDesk.jpg'); } */
-  #seqCupon{ background-image: url('../img/demo/seqCuponDesk.jpg'); }
+  .producto>.wrap>div{ height: 100%; }
+  #seqHome{ background-image: url('../img/seqHome/desk-28.jpg'); }
   .buttonG{
     font-size: 1.5rem;
     width: 300px;
@@ -335,11 +372,19 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
     left: calc(50% - 150px);
   }
 }
+/* ANIMATIONS */
 @-webkit-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-moz-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-ms-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @-o-keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
 @keyframes fadeIn { from{opacity: 0} to{opacity: 1} }
+
+@-webkit-keyframes scaleUp { 0%{ opacity: 0; -webkit-transform: scale(0); } 65%{ opacity: 0.8; -webkit-transform: scale(1.1); } 100%{ opacity: 1; -webkit-transform: scale(1); } }
+@-moz-keyframes scaleUp { 0%{ opacity: 0; -moz-transform: scale(0); } 65%{ opacity: 0.8; -moz-transform: scale(1.1); } 100%{ opacity: 1; -moz-transform: scale(1); } }
+@-ms-keyframes scaleUp { 0%{ opacity: 0; -ms-transform: scale(0); } 65%{ opacity: 0.8; -ms-transform: scale(1.1); } 100%{ opacity: 1; -ms-transform: scale(1); } }
+@-o-keyframes scaleUp { 0%{ opacity: 0; -o-transform: scale(0); } 65%{ opacity: 0.8; -o-transform: scale(1.1); } 100%{ opacity: 1; -o-transform: scale(1); } }
+@keyframes scaleUp { 0%{ opacity: 0; transform: scale(0); } 65%{ opacity: 0.8; transform: scale(1.1); } 100%{ opacity: 1; transform: scale(1); } }
+
 /* BASES */
 #bases{
   padding-bottom: 100px;

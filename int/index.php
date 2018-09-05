@@ -34,37 +34,73 @@ Sigue sudando v2
   <body id="index" class="standarWidth">
     <!-- <div id="block"></div> -->
     <!-- LOADING -->
-    <div id="loading" class="flexDisplay standarWidth">
+    <div id="loading" class="flexDisplay standarWidth trans7">
       <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280">
       <p>Cargando...</p>
     </div>
     <!-- MENU -->
-    <nav class="flexDisplay">
+    <nav id="menu" class="flexDisplay trans7">
       <h1>
         <a href="index.php"> <!-- CAMBIAR!!!!! -->
-          <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+          <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®" title="Gatorade ®" width="60px">
         </a>
       </h1>
       <p id="stateText"></p>
       <div id="blk"></div>
     </nav>
-    <!-- PRODUCTOS -->
+    <!-- PRODUCTOS CARRUSEL -->
     <div id="carrusel" class="standarWidth" style="display:block">
-      <section id="producto1" class="producto flexDisplay">
-        <div class="wrap">
-
-        </div>
-        <a role="button" class="buttonG trans7" onclick="generateCoupon()">Obtén Tu Cupón</a>
+      <section id="producto1" class="producto flexDisplay trans7">
+        <div class="wrap trans7"></div>
+        <a role="button" id="buttonHome" class="buttonG scaleUpButtonInit">Obtén Tu Cupón</a>
       </section>
     </div>
     <!-- GENERANDO CUPÓN -->
-    <div id="generandocupon" class="standarWidth trans7" style="display:none">
-      <section id="generando1" class="producto flexDisplay">
-        <div id="seqCupon" class="wrap"></div>
+    <div id="generandocupon" class="standarWidth" style="display:block">
+      <section id="loadCoupon1" class="producto flexDisplay">
+        <div class="wrap"></div>
         <div id="counter" class="flexDisplay">
           <p>0</p>
         </div>
       </section>
+    </div>
+    <!-- CUPON 24 -->
+    <div id="horasDiv" class="mensaje standarWidth" style="display:block">
+      <div class="flexDisplay">
+        <p>
+          <span>¡Ups!</span>
+        </p>
+        <p>
+          Acabas de crear un cupón <span>vuelve pronto.</span>
+        </p>
+        <div id="social" class="flexDisplay">
+          <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
+            <img src="ui/img/social/fb.svg" width="60">
+          </a>
+          <a href="https://www.instagram.com/gatorademexico/" target="_blank">
+            <img src="ui/img/social/ig.svg" width="60">
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- CUPON Agotado -->
+    <div id="agotadoDiv" class="mensaje standarWidth" style="display:none">
+      <div class="flexDisplay">
+        <p>
+          <span>¡Ups!</span>
+        </p>
+        <p>
+          Los cupones <span>se han agotado</span>
+        </p>
+        <div id="social" class="flexDisplay">
+          <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
+            <img src="ui/img/social/fb.svg" width="60">
+          </a>
+          <a href="https://www.instagram.com/gatorademexico/" target="_blank">
+            <img src="ui/img/social/ig.svg" width="60">
+          </a>
+        </div>
+      </div>
     </div>
     <!-- CUPÓN -->
     <div id="cupon" class="standarWidth" style="display:none">
@@ -72,14 +108,14 @@ Sigue sudando v2
       <a role="button" class="buttonG trans7" onclick="savedCoupon()">Capturar Pantalla</a>
     </div>
     <!-- CUPÓN GUARDADO -->
-    <div id="guardado" class="standarWidth" style="display:none">
+    <div id="guardado" class="mensaje standarWidth" style="display:none">
       <div class="flexDisplay">
         <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120">
         <p>
-          Ya tienes más <span>Gatorade</span> para seguir sudando
+          Ya tienes más <span>Gatorade <span>®</span></span> para seguir sudando
         </p>
         <p>
-          <span>#siguesudando</span>
+          <span>#siguesudando<span>®</span></span>
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
@@ -92,14 +128,14 @@ Sigue sudando v2
       </div>
     </div>
     <!-- FOOTER -->
-    <footer class="flexDisplay">
+    <footer id="footer" class="flexDisplay trans7">
       <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
       <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
     </footer>
     <!-- SCRIPT -->
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.js" charset="utf-8"></script>
-    <script type="text/javascript">
+    <script>
       window.onload = function(){
         valido();
       }

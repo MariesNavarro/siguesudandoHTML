@@ -1,0 +1,5 @@
+IP:[::1] Fecha[2018-09-05 16:08:50] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '9047321000100']
+IP:[::1] Fecha[2018-09-05 16:16:19] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '9047321000101']
+IP:[::1] Fecha[2018-09-05 16:56:17] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '9047321000102']
+IP:[::1] Fecha[2018-09-05 16:58:11] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '9047321000103']
+IP:[::1] Fecha[2018-09-05 18:42:02] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '9047321000100']
