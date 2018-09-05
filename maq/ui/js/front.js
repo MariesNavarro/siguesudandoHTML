@@ -10,10 +10,12 @@ return  window.requestAnimationFrame       ||
     			window.setTimeout(callback, 1000 / 60);
       	};
 })();
+var cupon = _("#cupon1"),
+    interno = 0,
+    cB = false,
+    w = window.innerWidth;
 function initFront(){
-  var cB = false,
-      w = window.innerWidth,
-      fps = 12,
+  var fps = 12,
       fpsHome,
       fpsCoupon,
       xhrListHome = [],
@@ -22,10 +24,10 @@ function initFront(){
   var detectBrowser = (function(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
-      buttonHome.addEventListener("touchstart", generateCoupon);
+      buttonHome.addEventListener("touchstart", lauchCoupon);
       loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
     } else {
-      buttonHome.addEventListener("click", generateCoupon);
+      buttonHome.addEventListener("click", lauchCoupon);
       if(w < 960){
         loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
       } else {
@@ -99,15 +101,15 @@ function initFront(){
     el[0].setAttribute("style", " ");
     el[0].setAttribute("class", " ");
   }//cleanSeq
-  function generateCoupon(){
+  function lauchCoupon(){
     var tx = _('#stateText').innerHTML = "Cargando Cupón...";
     var carrusel = _('#carrusel').style.display = "none";
     var loadCoupon1 = _("#loadCoupon1>.wrap").style.opacity = "1";
     setTimeout(function(){
       animationSeqCoupon();
     },700);
-    // loadingCoupon(); //Quitar este comentario para generar cupon
-  }//generateCoupon
+    loadingCoupon(); //Quitar este comentario para generar cupon
+  }//lauchCoupon
   function loadingSeq(url, ext, len, seq){
     if(seq === "home"){
       fpsHome = len;
@@ -144,14 +146,39 @@ function initFront(){
   }//loadingSeq
 }
 
+function handleSizeCoupon(wid){
+  if(cB){
+    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+  } else if (cB === false && wid < 960) {
+    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+  } else if (cB === false && wid > 960) {
+    cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
+  }
+}
+
+function generateCoupon(i){
+  interno = i;
+  if(cB){
+    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+  } else if (!cB && w < 960) {
+    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+  } else if (!cB && w > 960) {
+    cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
+  }
+}
 
 
 
-
-
-
-function detectLandscape(){
-  
+function horasDisplay(c){
+  var wr = _("#horasDiv");
+  if(c === "displayBlock"){
+    var tx = _('#stateText').innerHTML = " ";
+    wr.style.display = "block";
+  } else {
+    var tx = _('#stateText').innerHTML = "Cupón Listo";
+    displayCoupon();
+    wr.style.display = "none";
+  }
 }
 
 
@@ -167,7 +194,9 @@ function loadingCoupon(){
       clearInterval(interval);
       setTimeout(function(){
         generando.style.display = "none";
-        displayCoupon();
+
+        generateCoupon(0);
+        horasDisplay("displayNone");
       },1000);
     }
   });
@@ -176,7 +205,7 @@ function loadingCoupon(){
 
 function displayCoupon(){
   var cupon = _("#cupon").style.display = "block";
-  var tx = _('#stateText').innerHTML = "Cupón Listo";
+
 }
 
 function savedCoupon(){
@@ -184,3 +213,12 @@ function savedCoupon(){
   var guardado = _("#guardado").style.display = "block";
   var tx = _('#stateText').innerHTML = "Cupón Guardado Exitosamente";
 }
+
+function detectLandscape(){
+
+}
+
+window.onresize = function(){
+  var wid = window.innerWidth;
+  handleSizeCoupon(wid);
+};

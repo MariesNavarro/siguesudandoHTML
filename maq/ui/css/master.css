@@ -1,4 +1,4 @@
-/*
+.mensaje/*
 Theme: Sigue sudando v2
 Version: 2
 Author: Oet Capital
@@ -145,13 +145,14 @@ footer>a>span{ display: none }
 
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 @media (min-width: 350px){ nav>p{ text-transform: uppercase; font-size: 0.9rem; } }
-#carrusel, #generandocupon, #cupon, #guardado{
+#carrusel, #generandocupon, #cupon, .mensaje{
   background: #ff4d00;
   position: fixed;
   height: 100vh;
 }
-#carrusel{  z-index: 3; }
-#generandocupon{ z-index: 2;}
+#carrusel{  z-index: 5 }
+#generandocupon{ z-index: 4}
+#horasDiv{ z-index: 3 }
 .producto{
   position: relative;
   width: 100%;
@@ -277,12 +278,11 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-align-items: center;
   align-items: center;
   overflow: hidden;
-  background-image: url('../img/demo/promoMob.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
 }
-#guardado>div{
+.mensaje>div{
   margin-top: 55px;
   width: 100%;
   height: calc(100% - 160px);
@@ -307,7 +307,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-justify-content:space-around;
   justify-content:space-around;
 }
-#guardado>div>p{
+.mensaje>div>p{
   font-family: 'GBold', serif;
   text-transform: uppercase;
   font-size: 2rem;
@@ -315,18 +315,18 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   width: 250px;
   line-height: 1;
 }
-#guardado>div>p>span{
+.mensaje>div>p>span{
   color: #fff;
 }
 @media (min-width: 960px){
-  #guardado>div{
+
+  .mensaje>div{
     margin-top: 70px;
     height: calc(100% - 115px);
   }
   .cupon{
     margin: 75px auto 0 auto;
     height: calc(100% - 250px);
-    background-image: url('../img/demo/promoDesk.png');
   }
   #generandocupon>section>#counter{
     left: calc(50% - 50px);
@@ -361,6 +361,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   }
   footer>a, footer>p{ font-size: 1rem; font-family: 'GMedium', serif; }
   footer>p>span{ margin: 0 3px;}
+  .producto>.wrap>div{ height: 100%; }
   #seqHome{ background-image: url('../img/seqHome/desk-28.jpg'); }
   .buttonG{
     font-size: 1.5rem;
