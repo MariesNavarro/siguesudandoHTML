@@ -105,7 +105,7 @@ Sigue sudando v2
     <!-- CUPÓN -->
     <div id="cupon" class="standarWidth" style="display:none">
       <section id="cupon1" class="cupon"></section>
-      <a role="button" class="buttonG trans7" onclick="savedCoupon()">Capturar Pantalla</a>
+      <a id="download" role="button" class="buttonG trans7" onclick="savedCoupon()">Capturar Pantalla</a>
     </div>
     <!-- CUPÓN GUARDADO -->
     <div id="guardado" class="mensaje standarWidth" style="display:none">

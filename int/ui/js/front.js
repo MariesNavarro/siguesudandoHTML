@@ -219,6 +219,22 @@ function loadingCoupon(d){
           }
           else {
             generateCoupon(d);
+            var arch='';
+            if(cB){
+              arch='ui/img/promoMob-'+d+'.jpg';
+            } else if (!cB && w < 960) {
+              arch='ui/img/promoMob-'+d+'.jpg';
+            } else if (!cB && w >= 960) {
+              arch='ui/img/promoDesk-'+d+'.jpg';
+            }
+            toDataURL(arch, function(dataUrl) {
+               console.log('RESULT:',dataUrl);
+               var dow=_("#download");
+               dow.download="cupon.jpg"
+               dow.href=dataUrl;
+               dow.target='_blank';
+            });
+
             horasDisplay("displayNone");
           }
 
@@ -235,9 +251,7 @@ function displayCoupon(){
 }
 
 function savedCoupon(){
-  toDataURL('/ui/img/promoDesk.jpg', function(dataUrl) {
-    console.log('RESULT:',dataUrl);
-  });
+
   var cupon = _("#cupon").style.display = "none";
   var guardado = _("#guardado").style.display = "block";
   var tx = _('#stateText').innerHTML = "Cupón Guardado Exitosamente";
