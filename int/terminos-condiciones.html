@@ -1,7 +1,7 @@
 <!--
 Oet Capital
 Sigue sudando v2
-22 de Agosto
+22 de Agosto 2018
 -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -30,10 +30,10 @@ Sigue sudando v2
   </head>
   <body id="bases">
     <!-- MENU -->
-    <nav class="flexDisplay" style="position:absolute">
+    <nav id="menubases"  class="flexDisplay" style="position:absolute">
       <h1>
-        <a href="index.html"> <!-- CAMBIAR!!!!! -->
-          <img src="ui/img/logotipo-gatorade-black.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+        <a href="index.html">
+          <img src="ui/img/logotipo-gatorade-black.svg" class="trans3" alt="Gatorade ®" title="Gatorade ®" width="60px">
         </a>
       </h1>
       <p id="stateText"></p>
@@ -138,9 +138,14 @@ Sigue sudando v2
     <p>
       Industria de Refrescos, S. de R.L. de C.V., con domicilio fiscal en Avenida Santa Fe Número 485, Piso 4, Col. Cruz Manca, Cuajimalpa de Morelos, C.P. 05349, Ciudad de México, RFC: IRE820805HA3.
     </p>
+    <br>
+    <a data-scroll href="#bases" class="trans3"> Subir </a>
+    <a href="index.php" class="trans3"> Regresar </a>
     <!-- FOOTER -->
     <footer class="flexDisplay" style="background:#fff;bottom:0">
       <p>Hidrátate sanamente | ® Marca Registrada </p>
     </footer>
+    <script src="ui/js/smooth-scroll.min.js" charset="utf-8"></script>
+    <script> window.onload = function(){ smoothScroll.init(); } </script>
   </body>
   </html>
