@@ -1,7 +1,7 @@
 <!--
 Oet Capital
 Sigue sudando v2
-22 de Agosto
+22 de Agosto 2018
 -->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -32,17 +32,21 @@ Sigue sudando v2
     <script src="backend/js/app.js"></script>
   </head>
   <body id="index" class="standarWidth">
-    <!-- <div id="block"></div> -->
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth trans7">
       <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280">
-      <p>Cargando...</p>
+      <div class="flexDisplay">
+        <p>Cargando</p>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
     <!-- MENU -->
     <nav id="menu" class="flexDisplay trans7">
       <h1>
-        <a href="index.php"> <!-- CAMBIAR!!!!! -->
-          <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®" title="Gatorade ®" width="60px">
+        <a href="index.php">
+          <img src="ui/img/logotipo-gatorade.svg" class="trans3" alt="Gatorade ®" title="Gatorade ®" width="60px">
         </a>
       </h1>
       <p id="stateText"></p>
@@ -56,7 +60,7 @@ Sigue sudando v2
       </section>
     </div>
     <!-- GENERANDO CUPÓN -->
-    <div id="generandocupon" class="standarWidth" style="display:block">
+    <div id="generandocupon" class="standarWidth trans7" style="display:block">
       <section id="loadCoupon1" class="producto flexDisplay">
         <div class="wrap"></div>
         <div id="counter" class="flexDisplay">
@@ -129,16 +133,19 @@ Sigue sudando v2
     </div>
     <!-- FOOTER -->
     <footer id="footer" class="flexDisplay trans7">
-      <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
+      <a class="flexDisplay trans3" href="terminos-condiciones.html">Consulta Bases, Términos y Condiciones</a>
       <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
     </footer>
+    <!-- PREVENT LANDSCAPE -->
+    <div id="preventLandscape" class="dislplayNone">
+      <img src="ui/img/rotate.svg" width="50">
+      <p>Por favor gira tu teléfono</p>
+    </div>
     <!-- SCRIPT -->
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.js" charset="utf-8"></script>
     <script>
-      window.onload = function(){
-        valido();
-      }
+      window.onload = function(){ valido(); }
     </script>
   </body>
 </html>

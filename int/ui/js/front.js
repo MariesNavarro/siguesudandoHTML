@@ -1,5 +1,5 @@
 "use strict";
-window.console.log("%cCoded by Oet Capital", "color:#fff;  font-size: 10px; background:#000; padding:20px;");
+// window.console.log("%cCoded by Oet Capital", "color:#fff;  font-size: 10px; background:#000; padding:20px;");
 function _(el){return document.querySelector(el); }
 function __(el){return document.querySelectorAll(el); }
 window.requestAnimFrame = (function(){
@@ -25,11 +25,11 @@ function initFront(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
       buttonHome.addEventListener("touchstart", lauchCoupon);
-      loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
+      loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
     } else {
       buttonHome.addEventListener("click", lauchCoupon);
       if(w < 960){
-        loadingSeq("ui/img/seqHome/mob-", ".jpg", 24, "home");
+        loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
       } else {
         loadingSeq("ui/img/seqHome/desk-", ".jpg", 28, "home");
       }
@@ -108,7 +108,6 @@ function initFront(){
     setTimeout(function(){
       animationSeqCoupon();
     },700);
-      //loadingCoupon(); //Quitar este comentario para generar cupon
       obtencupon();
   }//lauchCoupon
   function loadingSeq(url, ext, len, seq){
@@ -132,7 +131,7 @@ function initFront(){
                 loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
               } else if (cB === false && w < 960) {
                 loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
-              } else if(cB === false && w > 960){
+              } else if(cB === false && w >= 960){
                 loadingSeq("ui/img/seqLoadCoupon/desk-", ".jpg", 26, "coupon");
               }
             }
@@ -152,7 +151,7 @@ function handleSizeCoupon(wid){
     cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
   } else if (cB === false && wid < 960) {
     cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
-  } else if (cB === false && wid > 960) {
+  } else if (cB === false && wid >= 960) {
     cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
   }
 }
@@ -163,7 +162,7 @@ function generateCoupon(i){
     cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
   } else if (!cB && w < 960) {
     cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
-  } else if (!cB && w > 960) {
+  } else if (!cB && w >= 960) {
     cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
   }
 }
@@ -196,7 +195,6 @@ function agotadoDisplay(c){
 
 
 function loadingCoupon(d){
-
     var generando = _("#generandocupon");
     var n = 0;
     var counter = _("#counter>p");
@@ -206,7 +204,8 @@ function loadingCoupon(d){
       if(n===100) {
         clearInterval(interval);
         setTimeout(function(){
-          generando.style.display = "none";
+          generando.style.opacity = "0";
+          setTimeout(function(){ generando.style.display = "none"; },800);
           if(d==="VUELVE")
           {
             horasDisplay("displayBlock");
@@ -222,16 +221,14 @@ function loadingCoupon(d){
             horasDisplay("displayNone");
           }
 
-        },1000);
+        },3000);
       }
     });
-
 }
 
 
 function displayCoupon(){
   var cupon = _("#cupon").style.display = "block";
-
 }
 
 function savedCoupon(){
@@ -246,7 +243,14 @@ function savedCoupon(){
 function detectLandscape(){
 
 }
-
+window.onorientationchange = function(){
+  var wr = _('#preventLandscape');
+  if(window.orientation == 90 || window.orientation == -90){
+    wr.setAttribute("class", "flexDisplay");
+  } else {
+    wr.setAttribute("class", "dislplayNone");
+  }
+}
 window.onresize = function(){
   var wid = window.innerWidth;
   handleSizeCoupon(wid);
