@@ -82,3 +82,4 @@ IP:[::1] Fecha[2018-09-06 17:53:23] ejecucion:[UPDATE  gtrd_cupones SET estatus 
 IP:[192.168.0.230] Fecha[2018-09-06 17:54:47] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='192.168.0.230',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000012']
 IP:[192.168.0.230] Fecha[2018-09-06 17:55:12] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='192.168.0.230',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000013']
 >>>>>>> c36889d3cbe1e1ce15599c016c67c2cef74a58d2
+IP:[127.0.0.1] Fecha[2018-09-06 18:28:42] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000016']

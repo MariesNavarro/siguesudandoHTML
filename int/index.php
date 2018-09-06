@@ -34,7 +34,7 @@ Sigue sudando v2
   <body id="index" class="standarWidth">
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth trans7">
-      <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280">
+      <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280" height="280">
       <div class="flexDisplay">
         <p>Cargando</p>
         <span></span>
@@ -46,7 +46,7 @@ Sigue sudando v2
     <nav id="menu" class="flexDisplay trans7">
       <h1>
         <a href="index.php">
-          <img src="ui/img/logotipo-gatorade.svg" class="trans3" alt="Gatorade ®" title="Gatorade ®" width="60px">
+          <img src="ui/img/logotipo-gatorade.svg" class="trans3" alt="Gatorade ®" title="Gatorade ®" width="60px" height="60px">
         </a>
       </h1>
       <p id="stateText"></p>
@@ -79,10 +79,10 @@ Sigue sudando v2
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60">
+            <img src="ui/img/social/fb.svg" width="60" height="60">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60">
+            <img src="ui/img/social/ig.svg" width="60" height="60">
           </a>
         </div>
       </div>
@@ -98,10 +98,10 @@ Sigue sudando v2
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60">
+            <img src="ui/img/social/fb.svg" width="60" height="60">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60">
+            <img src="ui/img/social/ig.svg" width="60" height="60">
           </a>
         </div>
       </div>
@@ -114,7 +114,7 @@ Sigue sudando v2
     <!-- CUPÓN GUARDADO -->
     <div id="guardado" class="mensaje standarWidth" style="display:none">
       <div class="flexDisplay">
-        <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120">
+        <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120" height="120">
         <p>
           Ya tienes más <span>Gatorade <span>®</span></span> para seguir sudando
         </p>
@@ -123,10 +123,10 @@ Sigue sudando v2
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60">
+            <img src="ui/img/social/fb.svg" width="60" height="60">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60">
+            <img src="ui/img/social/ig.svg" width="60" height="60">
           </a>
         </div>
       </div>
@@ -138,7 +138,7 @@ Sigue sudando v2
     </footer>
     <!-- PREVENT LANDSCAPE -->
     <div id="preventLandscape" class="dislplayNone">
-      <img src="ui/img/rotate.svg" width="50">
+      <img src="ui/img/rotate.svg" width="50" height="50">
       <p>Por favor gira tu teléfono</p>
     </div>
     <!-- SCRIPT -->
