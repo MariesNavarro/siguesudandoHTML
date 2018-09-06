@@ -235,6 +235,9 @@ function displayCoupon(){
 }
 
 function savedCoupon(){
+  toDataURL('/ui/img/promoDesk.jpg', function(dataUrl) {
+    console.log('RESULT:',dataUrl);
+  }
   var cupon = _("#cupon").style.display = "none";
   var guardado = _("#guardado").style.display = "block";
   var tx = _('#stateText').innerHTML = "Cupón Guardado Exitosamente";
