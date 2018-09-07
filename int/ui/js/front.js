@@ -2,6 +2,18 @@
 window.console.log("%cCoded by Oet Capital", "color:#fff;  font-size: 10px; background:#000; padding:20px;");
 function _(el){return document.querySelector(el); }
 function __(el){return document.querySelectorAll(el); }
+window.performance = window.performance || {};
+    window.performance.now = (function() {
+        return performance.now       ||
+            window.performance.mozNow    ||
+            window.performance.msNow     ||
+            window.performance.oNow      ||
+            window.performance.webkitNow ||
+                function() {
+                    return new Date().getTime();
+                };
+        })();
+
 window.requestAnimFrame = (function(){
 return  window.requestAnimationFrame       ||
     		window.webkitRequestAnimationFrame ||
@@ -46,7 +58,7 @@ function initFront(){
         wr.style.display = "none";
         wrap.style.opacity = "1";
         requestAnimationFrame(animationSeqHome);
-      },700);
+      },1000);
     },2000);
   }//displaySeqHome
   function generateSeq(url, ext, len, parent){

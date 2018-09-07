@@ -205,3 +205,8 @@ IP:[127.0.0.1] Fecha[2018-09-07 13:53:58] ejecucion:[UPDATE  gtrd_cupones SET es
 IP:[127.0.0.1] Fecha[2018-09-07 13:53:59] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000013']
 IP:[127.0.0.1] Fecha[2018-09-07 13:55:09] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='0622ec29c99f00ca97412f4a720b0d9c',fecha_entregado=NOW() WHERE codigo = '9047321000014']
 IP:[127.0.0.1] Fecha[2018-09-07 13:55:10] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000015']
+IP:[127.0.0.1] Fecha[2018-09-07 13:58:41] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000016']
+IP:[127.0.0.1] Fecha[2018-09-07 14:00:35] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000017']
+IP:[127.0.0.1] Fecha[2018-09-07 14:04:24] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000018']
+IP:[127.0.0.1] Fecha[2018-09-07 14:04:44] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='64dcb1833e9fde932a209262b7653b69',fecha_entregado=NOW() WHERE codigo = '9047321000019']
+IP:[127.0.0.1] Fecha[2018-09-07 14:16:38] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='127.0.0.1',huella_digital='0622ec29c99f00ca97412f4a720b0d9c',fecha_entregado=NOW() WHERE codigo = '9047321000020']
