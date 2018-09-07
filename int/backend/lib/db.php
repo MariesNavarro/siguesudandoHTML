@@ -26,10 +26,9 @@ function validafechas(&$cad,$promo)
   Close($link);
   return $reg;
 }
-function validaregion($idprom,$ip)
+function validaregion($idprom,$ip,$link)
 {
   $count=0;
-  $link=connect();
   $consulta = "SELECT * from gtrd_promociones_estados where id_promo=".$idprom.";";
   if ($resultado = mysqli_query($link, $consulta)) {
     while ($fila = mysqli_fetch_row($resultado)) {
@@ -41,6 +40,55 @@ function validaregion($idprom,$ip)
        //getcupon($link,$ip,$idClient,$idprom);
        //Es valido
        echo "SI";
+     }
+  }
+  else {
+    echo 'ERROR';
+  }
+}
+function validalista($idprom,$ip)
+{
+  $count=0;
+  $link=connect();
+  $consulta = "SELECT * from gtrd_listanegra where ip='".$ip."';";
+  if ($resultado = mysqli_query($link, $consulta)) {
+    while ($fila = mysqli_fetch_row($resultado)) {
+        $count++;
+        echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;>
+          <h1>
+            <a href="index.php"> <!-- CAMBIAR!!!!! -->
+              <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+            </a>
+          </h1>
+          <p id="stateText"></p>
+          <div id="blk"></div>
+        </nav><div id="horasDiv" class="mensaje standarWidth" style="display:block">
+          <div class="flexDisplay">
+            <p>
+              <span>¡Ups!</span>
+            </p>
+            <p>
+              La promocion no es valida <span>para tu ubicacion</span>
+            </p>
+            <div id="social" class="flexDisplay">
+              <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
+                <img src="ui/img/social/fb.svg" width="60">
+              </a>
+              <a href="https://www.instagram.com/gatorademexico/" target="_blank">
+                <img src="ui/img/social/ig.svg" width="60">
+              </a>
+            </div>
+          </div>
+        </div><footer id="footer" class="flexDisplay trans7" style="opacity: 1;">
+          <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
+          <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
+        </footer>';
+     }
+     if($count<1)
+     {
+       //getcupon($link,$ip,$idClient,$idprom);
+       //Es valido
+       validaregion($idprom,$ip,$link);
      }
   }
   else {
