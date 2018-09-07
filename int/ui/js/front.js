@@ -230,7 +230,8 @@ function loadingCoupon(d){
                console.log('RESULT:',dataUrl);
                var dow=_("#download");
                dow.download="cupon.jpg"
-               dow.href=dataUrl;
+               //dow.href=dataUrl;
+               dow.href=arch;
                dow.target='_blank';
             });
 
