@@ -30,6 +30,14 @@ Sigue sudando v2
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="backend/js/fingerprint2.js"></script>
     <script src="backend/js/app.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125324668-1"></script>
+    <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-125324668-1');
+  </script>
   </head>
   <body id="index" class="standarWidth">
     <!-- LOADING -->
