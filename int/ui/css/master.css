@@ -1,4 +1,4 @@
-.mensaje/*
+/*
 Theme: Sigue sudando v2
 Version: 2
 Author: Oet Capital
@@ -52,10 +52,18 @@ body{
   opacity: 1;
   /* display: none; */
 }
-#loading>img{
+#loading>div{
+  text-align: center;
+  width: 80%;
+  max-width: 280px;
+  min-width: 110px;
+  height: 200px;
+}
+#loading>div>img{
   width: 25%;
   max-width: 280px;
   min-width: 110px;
+  height: 100px;
   opacity: 0;
   -webkit-animation: fadeIn 0.7s ease-in 0.7s forwards;
   -moz-animation: fadeIn 0.7s ease-in 0.7s forwards;
@@ -63,7 +71,8 @@ body{
   -o-animation: fadeIn 0.7s ease-in 0.7s forwards;
   animation: fadeIn 0.7s ease-in 0.7s forwards;
 }
-#loading>div{
+#loading>div>div{
+  margin: 0 auto;
   width: 250px;
   height: 30px;
   -webkit-justify-content: center;
@@ -83,12 +92,12 @@ body{
   -o-animation: fadeIn 0.7s ease-in 1.2s forwards;
   animation: fadeIn 0.7s ease-in 1.2s forwards;
 }
-#loading>div>p{
+#loading>div>div>p{
   font-size: 1.7rem;
   color: #fff;
   margin-right: 3px;
 }
-#loading>div>span{
+#loading>div>div>span{
   display: block;
   width: 7px;
   height: 7px;
@@ -101,21 +110,21 @@ body{
   -o-animation: scaleDot 1.5s infinite;
   animation: scaleDot 1.5s infinite;
 }
-#loading>div>span:nth-child(2){
+#loading>div>div>span:nth-child(2){
   -webkit-animation-delay: 1s;
   -moz-animation-delay: 1s;
   -ms-animation-delay: 1s;
   -o-animation-delay: 1s;
   animation-delay: 1s;
 }
-#loading>div>span:nth-child(3){
+#loading>div>div>span:nth-child(3){
   -webkit-animation-delay: 1.5s;
   -moz-animation-delay: 1.5s;
   -ms-animation-delay: 1.5s;
   -o-animation-delay: 1.5s;
   animation-delay: 1.5s;
 }
-#loading>div>span:nth-child(4){
+#loading>div>div>span:nth-child(4){
   -webkit-animation-delay: 2s;
   -moz-animation-delay: 2s;
   -ms-animation-delay: 2s;
@@ -284,14 +293,13 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-transform: scale(1.1);
   transform: scale(1.1);
 }
-
 #generandocupon>section>#counter{
   position: absolute;
   bottom: 125px;
   width: 60px;
   height: 60px;
   left: calc(50% - 30px);
-  background-image: url('../img/demo/circle.png');
+  /* background-image: url('../img/demo/circle.png'); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -308,8 +316,24 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 }
 #generandocupon>section>#counter>p{
   font-family: 'GBlack', serif;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
+#generandocupon>section>#counter>svg{
+  position: absolute;
+  transform: rotate(90deg);
+}
+.ccircle{
+  fill:none;
+  stroke-miterlimit:10;
+  stroke-width:15px;
+}
+#ccircleW{
+  stroke:#fff;
+  stroke-width:16px;
+  stroke-dasharray: 328.34;
+  stroke-dashoffset: -328.34;
+}
+#ccircleB{ stroke:#000; }
 .cupon{
   position: relative;
   margin: 55px auto 0 auto;
@@ -336,7 +360,14 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-animation: fadeIn 0.7s ease-in 1s forwards;
   animation: fadeIn 0.7s ease-in 1s forwards;
 }
-
+#download{
+  opacity: 0;
+  -webkit-animation: fadeIn 0.7s ease-in 1.5s forwards;
+  -moz-animation: fadeIn 0.7s ease-in 1.5s forwards;
+  -ms-animation: fadeIn 0.7s ease-in 1.5s forwards;
+  -o-animation: fadeIn 0.7s ease-in 1.5s forwards;
+  animation: fadeIn 0.7s ease-in 1.5s forwards;
+}
 .mensaje>div{
   margin-top: 55px;
   width: 100%;
@@ -374,7 +405,6 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   color: #fff;
 }
 @media (min-width: 960px){
-
   .mensaje>div{
     margin-top: 70px;
     height: calc(100% - 115px);

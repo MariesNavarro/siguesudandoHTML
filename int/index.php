@@ -42,12 +42,14 @@ Sigue sudando v2
   <body id="index" class="standarWidth">
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth trans7">
-      <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280" height="280">
-      <div class="flexDisplay">
-        <p>Cargando</p>
-        <span></span>
-        <span></span>
-        <span></span>
+      <div>
+        <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280" height="280">
+        <div class="flexDisplay">
+          <p>Cargando</p>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
     <!-- MENU -->
@@ -72,6 +74,8 @@ Sigue sudando v2
       <section id="loadCoupon1" class="producto flexDisplay">
         <div class="wrap"></div>
         <div id="counter" class="flexDisplay">
+          <svg viewBox="0 0 119.5 119.5"><path id="ccircleB" class="ccircle" d="M7.5,59.75a52.25,52.25 0 1,0 104.5,0a52.25,52.25 0 1,0 -104.5,0"/></svg>
+          <svg viewBox="0 0 119.5 119.5"><path id="ccircleW" class="ccircle" d="M7.5,59.75a52.25,52.25 0 1,0 104.5,0a52.25,52.25 0 1,0 -104.5,0"/></svg>
           <p>0</p>
         </div>
       </section>
