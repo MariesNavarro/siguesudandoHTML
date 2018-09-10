@@ -87,7 +87,7 @@ Sigue sudando v2
           <span>¡Ups!</span>
         </p>
         <p>
-          Acabas de crear un cupón <span>vuelve pronto.</span>
+          Acabas de crear un cupón <br/><span>vuelve pronto.</span>
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
