@@ -31,6 +31,9 @@ body{
   font-size: 2.0rem;
   margin-top: 25px;
 }
+#content {
+  text-align: center;
+}
 #loading{
 /*  position:fixed;*/
   top: 0;
@@ -537,7 +540,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 
 #preventLandscape{
   position: fixed;
-  width: 100vw;
+  width: 95vw;
   height: 100vh;
   background: #ff4d00;
   color: #fff;
@@ -557,13 +560,20 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -ms-align-items: center;
   -o-align-items: center;
   align-items: center;
+  margin-left: 45px;
 }
 #preventLandscape>p{ margin: 10px auto; }
 
 @media screen and (max-device-width: 640px) {
-#wrapper { /*border: 2px solid blueviolet;  width: 100%;*/ }
+    #wrapper { /*border: 2px solid blueviolet;  width: 100%;*/ }
     .descPromo {
       font-size: 1.2rem!important;
-      margin-top: -52px;
+      margin-top: -48px;
+    }
+    #content {
+      margin-top: 332px!important;
+    }
+    #preventLandscape {
+      margin-top: -85px!important;
     }
 }

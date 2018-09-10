@@ -32,8 +32,11 @@ function actualizadiv(){
       //console.log(data);
       $('#loading').html(data).fadeIn();
       if (param3==1 && data.indexOf("incorrecta")==-1) {
-        $('#loading').css("height", "30vh");
-      }
+       console.log('height 30vh');
+       $('#loading').css("height", "30vh");
+     } else {
+       $('#loading').css("height", "100vh");
+     }
     }
   });
 }
@@ -57,3 +60,8 @@ function opentab(evt, tabname) {
     document.getElementById(tabname).style.display = "block";
     evt.currentTarget.className += " active";
 }
+$(document).keypress(function (e) {
+    if (e.which == 13) {
+        ingresar();
+    }
+});

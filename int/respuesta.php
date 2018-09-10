@@ -38,7 +38,7 @@
             <span>¡Ups!</span>
           </p>
           <p>
-            La promocion se ha terminado<span>espera proximas promociones</span>
+            La promoción se ha terminado<br/><span>espera próximas promociones</span>
           </p>
           <div id="social" class="flexDisplay">
             <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">

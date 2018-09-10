@@ -111,7 +111,7 @@ function login($user,$pass,$promo,&$error)
 }
 function loginhtml($error) {
      $salida='<div id="disclaimerIndex" class="flexDisplay back_word">
-    <div id="content" style="text-align: center;">
+    <div id="content">
       <section id="disclaimer">
         <p style="font-size: 1.6rem;  color: white;">Usuario:</p>
         <input name="username" type="text" id="username" required  style="font-size: 1.3rem;font-weight: 300;">
@@ -142,8 +142,12 @@ function createhtml($link,$promo)
   $cup_entregadoshoy = cuponesEntregadosHoy($link,$promo);
   $cup_entregados = cuponesEntregados($link,$promo);
   $cup_disponibles = cuponesDisponibles($link,$promo);
-  $porc_entregados = ($cup_entregados*100)/($cup_disponibles+$cup_entregados);
-  $porc_disponibles = ($cup_disponibles*100)/($cup_disponibles+$cup_entregados);
+  $porc_disponibles = 0;
+  $porc_entregados = 0;
+  if ($cup_disponibles+$cup_entregados > 0) {
+    $porc_entregados = ($cup_entregados*100)/($cup_disponibles+$cup_entregados);
+    $porc_disponibles = ($cup_disponibles*100)/($cup_disponibles+$cup_entregados);
+  }
   $color = "green";
 
   if ($porc_disponibles < 25) { $color = "red";}

@@ -68,7 +68,7 @@ function validalista($idprom,$ip)
               <span>¡Ups!</span>
             </p>
             <p>
-              La promocion no es valida <span>para tu ubicacion</span>
+              La promoción no es válida <span>para tu ubicación</span>
             </p>
             <div id="social" class="flexDisplay">
               <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
@@ -136,7 +136,7 @@ function promvalidestado($ip,$idprom,$link)
             <span>¡Ups!</span>
           </p>
           <p>
-            La promocion no es valida <span>para tu ubicacion</span>
+            La promoción no es válida <span>para tu ubicación</span>
           </p>
           <div id="social" class="flexDisplay">
             <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
@@ -161,7 +161,7 @@ function getcupon($client,$idClient,$promo)
 {
   $count=0;
   $link=connect();
-  $query1 = "SELECT TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(1*1*1) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where estatus=1 and ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
+  $query1 = "SELECT ((TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(60*1*1)) and ('".$client."'  not in (select ip from gtrd_listanegra))) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where estatus=1 and ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
   //echo $query1;
   if ($resultado = mysqli_query($link, $query1)) {
     while ($fila = mysqli_fetch_row($resultado)) {
