@@ -93,7 +93,8 @@ body{
   animation: fadeIn 0.7s ease-in 1.2s forwards;
 }
 #loading>div>div>p{
-  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
   color: #fff;
   margin-right: 3px;
 }
@@ -173,11 +174,6 @@ footer{
   height: 40px;
   background: transparent;
   z-index: 4000;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -ms-flex-direction: column;
-  -o-flex-direction: column;
-  flex-direction: column;
   -webkit-align-items: center;
   -moz-align-items: center;
   -ms-align-items: center;
@@ -197,7 +193,7 @@ footer>a:hover{
   opacity: 0.8;
   text-decoration: underline;
 }
-footer>a, footer>p{ font-size: 0.8rem; font-family: 'GLight', serif; }
+footer>a, footer>p{ font-size: 0.4rem; font-family: 'GLight', serif; }
 footer>a>span{ display: none }
 
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
@@ -248,7 +244,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 #seqHome{ background-image: url('../img/seqHome/mob-24.jpg'); }
 .buttonG{
   font-family: 'GBlack', serif;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   letter-spacing: 1.5;
   text-transform: uppercase;
   position: absolute;
@@ -360,6 +356,14 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   -o-animation: fadeIn 0.7s ease-in 1s forwards;
   animation: fadeIn 0.7s ease-in 1s forwards;
 }
+#social{
+  width: 110px;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+}
 #download{
   opacity: 0;
   -webkit-animation: fadeIn 0.7s ease-in 1.5s forwards;
@@ -433,11 +437,6 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
   footer{
     bottom: 15px;
     height: 30px;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    -o-flex-direction: row;
-    flex-direction: row;
     -webkit-justify-content: center;
     -moz-justify-content: center;
     -ms-justify-content: center;

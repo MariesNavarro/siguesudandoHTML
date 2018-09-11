@@ -41,6 +41,7 @@ function valido()
 {
   param1=MetodoEnum.Validar_Fecha;
   ValidateDate(param1);
+  // initFront();
 }
 function ValidateDate(param1) {
   var dataString = 'param1=' + param1+ '&promo=' + promo;

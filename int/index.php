@@ -91,10 +91,10 @@ Sigue sudando v2
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60" height="60">
+            <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60" height="60">
+            <img src="ui/img/social/ig.svg" width="50" height="50">
           </a>
         </div>
       </div>
@@ -110,10 +110,10 @@ Sigue sudando v2
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60" height="60">
+            <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60" height="60">
+            <img src="ui/img/social/ig.svg" width="50" height="50">
           </a>
         </div>
       </div>
@@ -128,17 +128,17 @@ Sigue sudando v2
       <div class="flexDisplay">
         <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120" height="120">
         <p>
-          Ya tienes más <span>Gatorade <span>®</span></span> para seguir sudando
+          Ya tienes más <span>Gatorade<span>®</span></span> para seguir sudando
         </p>
         <p>
           <span>#siguesudando<span>®</span></span>
         </p>
         <div id="social" class="flexDisplay">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="60" height="60">
+            <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="60" height="60">
+            <img src="ui/img/social/ig.svg" width="50" height="50">
           </a>
         </div>
       </div>
