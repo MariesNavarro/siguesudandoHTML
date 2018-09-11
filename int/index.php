@@ -60,7 +60,7 @@ Sigue sudando v2
         </a>
       </h1>
       <p id="stateText"></p>
-      <div id="blk"></div>
+      <div id="blk" class="flexDisplay" style="background-image:url('ui/img/blank.png')"></div>
     </nav>
     <!-- PRODUCTOS CARRUSEL -->
     <div id="carrusel" class="standarWidth" style="display:block">

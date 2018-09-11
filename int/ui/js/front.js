@@ -28,6 +28,7 @@ var cupon = _("#cupon1"),
     w = window.innerWidth,
     aRestar = 50;
 function initFront(){
+  var blk = _('#blk').style.backgroundImage = "url('ui/img/blank.png')";
   var fps = 12,
       fpsHome,
       fpsCoupon,
@@ -271,12 +272,14 @@ var h = window.innerHeight,
 }
 function displayCoupon(){
   var cupon = _("#cupon").style.display = "block";
+  var blk = _('#blk').style.backgroundImage = "url('ui/img/oxxo_logotipo.png')";
 }
 
 function savedCoupon(){
   var cupon = _("#cupon").style.display = "none";
   var guardado = _("#guardado").style.display = "block";
   var tx = _('#stateText').innerHTML = "Cupón Guardado Exitosamente";
+  var blk = _('#blk').style.backgroundImage = "url('ui/img/blank.png')";
 }
 
 window.onorientationchange = function(){

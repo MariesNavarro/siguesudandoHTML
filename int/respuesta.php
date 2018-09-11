@@ -42,10 +42,10 @@
           </p>
           <div id="social" class="flexDisplay">
             <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-              <img src="ui/img/social/fb.svg" width="60">
+              <img src="ui/img/social/fb.svg" width="50" height="50">
             </a>
             <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-              <img src="ui/img/social/ig.svg" width="60">
+              <img src="ui/img/social/ig.svg" width="50" height="50">
             </a>
           </div>
         </div>
