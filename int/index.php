@@ -14,6 +14,7 @@ Sigue sudando v2
     <title>Sigue Sudando | Gatorade ®</title>
     <link rel="stylesheet" href="ui/css/fonts.css">
     <link rel="stylesheet" href="ui/css/master.css">
+    <link rel="stylesheet" href="countdown/count.css">
     <link rel="prefetch" href="ui/img/logotipo-gatorade.svg">
     <link rel="canonical" href="www.siguesudando.com">
     <link rel="apple-touch-icon" sizes="180x180" href="ui/fav/apple-touch-icon.png">
@@ -27,7 +28,7 @@ Sigue sudando v2
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="backend/js/fingerprint2.js"></script>
     <script src="backend/js/app.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -121,7 +122,7 @@ Sigue sudando v2
     <!-- CUPÓN -->
     <div id="cupon" class="standarWidth" style="display:none">
       <section id="cupon1" class="cupon"></section>
-      <a id="download" role="button" class="buttonG trans7" onclick="savedCoupon()">Capturar Pantalla</a>
+      <a id="download" role="button" class="buttonG trans7" onclick="savedCoupon()">Guarda Cupón</a>
     </div>
     <!-- CUPÓN GUARDADO -->
     <div id="guardado" class="mensaje standarWidth" style="display:none">
