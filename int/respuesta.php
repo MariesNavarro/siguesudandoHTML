@@ -23,6 +23,55 @@
     }
     else
     {
+      //echo $val[0].' '.$cads[0];
+      if ($val[0]<0.000001) {  // no ha comenzado
+        echo '<nav id="logo" class="flexDisplay trans7" style="opacity: 1;">
+          <h1>
+            <a href="index.html"> <!-- CAMBIAR!!!!! -->
+              <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®" title="Gatorade ®" width="60px">
+            </a>
+          </h1>
+          <p id="stateText"></p>
+          <div id="blk"></div>
+        </nav>
+
+        <div id="main">
+          <p>La promoción comienza en</p>
+          <ul class="countdown">
+            <li>
+                <span class="days">00</span>
+                <p class="days_ref">Días</p>
+            </li>
+            <li class="seperator">.</li>
+            <li>
+                <span class="hours">00</span>
+                <p class="hours_ref">Horas</p>
+            </li>
+            <li class="seperator">:</li>
+            <li>
+                <span class="minutes">00</span>
+                <p class="minutes_ref">Minutos</p>
+            </li>
+            <li class="seperator">:</li>
+            <li>
+                <span class="seconds">00</span>
+                <p class="seconds_ref">Segundos</p>
+            </li>
+          </ul>
+        </div>
+        <script type="text/javascript" src="./countdown/jquery.downCount.js"></script>
+
+        <script type="text/javascript">
+            $(\'.countdown\').downCount({
+                date: \''.$cads[0].'\',
+                offset: -5
+            }, function () {
+                location.reload();
+            });
+        </script>';
+
+      }
+      else {  // ya finalizo
       echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;">
         <h1>
           <a href="index.php"> <!-- CAMBIAR!!!!! -->
@@ -56,6 +105,7 @@
         <a class="flexDisplay" href="terminos-condiciones.html" target="_blank">Consulta Bases, Términos y Condiciones</a>
         <p><span>  |  </span>Hidrátate sanamente | ® Marca Registrada </p>
       </footer>';
+    }
   }
 }
 else if($tipo==2)
