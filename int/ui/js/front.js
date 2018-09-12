@@ -38,6 +38,7 @@ function initFront(){
   var detectBrowser = (function(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
+      // enableWhatsapp();
       fixHeight();
       buttonHome.addEventListener("touchstart", lauchCoupon);
       loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
@@ -208,6 +209,19 @@ function agotadoDisplay(c){
   }
 }
 
+
+function enableWhatsapp(){
+  var wr = __('.socialWidth'),
+      bt = __('.whatsapp');
+  if(cB){
+    for (var i = 0; i < wr.length; i++) {
+      wr[i].style.width = "170px";
+    }
+    for (var i = 0; i < bt.length; i++) {
+      bt[i].style.display = "block";
+    }
+  }
+}
 
 function loadingCoupon(d){
     var generando = _("#generandocupon"),

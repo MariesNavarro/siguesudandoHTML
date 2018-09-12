@@ -89,12 +89,15 @@ Sigue sudando v2
         <p>
           Acabas de crear un cupón <br/><span>vuelve pronto.</span>
         </p>
-        <div id="social" class="flexDisplay">
+        <div id="social" class="flexDisplay socialWidth">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
             <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
             <img src="ui/img/social/ig.svg" width="50" height="50">
+          </a>
+          <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
+            <img src="ui/img/social/wspp.svg" width="50" height="50">
           </a>
         </div>
       </div>
@@ -108,12 +111,15 @@ Sigue sudando v2
         <p>
           Los cupones <span>se han agotado</span>
         </p>
-        <div id="social" class="flexDisplay">
+        <div id="social" class="flexDisplay socialWidth">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
             <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
             <img src="ui/img/social/ig.svg" width="50" height="50">
+          </a>
+          <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
+            <img src="ui/img/social/wspp.svg" width="50" height="50">
           </a>
         </div>
       </div>
@@ -133,12 +139,15 @@ Sigue sudando v2
         <p>
           <span>#siguesudando<span>®</span></span>
         </p>
-        <div id="social" class="flexDisplay">
+        <div id="social" class="flexDisplay socialWidth">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
             <img src="ui/img/social/fb.svg" width="50" height="50">
           </a>
           <a href="https://www.instagram.com/gatorademexico/" target="_blank">
             <img src="ui/img/social/ig.svg" width="50" height="50">
+          </a>
+          <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
+            <img src="ui/img/social/wspp.svg" width="50" height="50">
           </a>
         </div>
       </div>
