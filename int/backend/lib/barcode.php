@@ -142,7 +142,7 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 		//$stamp = imagecreatefrompng('./img/'.$nombre.'mob.png');
 		$im = imagecreatefromjpeg('ui/img/promoMob.jpg');
 		$marge_right = 180;
-		$marge_bottom = 160;
+		$marge_bottom = 180;
 		$sx = imagesx($image);
 		$sy = imagesy($image);
 		imagecopy($im, $image, imagesx($im) - $sx - $marge_right, imagesy($im) - $sy - $marge_bottom, 0, 0, imagesx($image), imagesy($image));
@@ -153,7 +153,7 @@ function barcode( $filepath="", $text="0", $size="20", $orientation="horizontal"
 		//$stamp = imagecreatefrompng('./img/'.$nombre.'.png');
 		$im2 = imagecreatefromjpeg('ui/img/promoDesk.jpg');
 		$marge_right2 = 162;
-		$marge_bottom2 = 55;
+		$marge_bottom2 = 75;
 		$sx2 = imagesx($image);
 		$sy2 = imagesy($image);
 		imagecopy($im2, $image, imagesx($im2) - $sx2 - $marge_right2, imagesy($im2) - $sy2 - $marge_bottom2, 0, 0, imagesx($image), imagesy($image));
