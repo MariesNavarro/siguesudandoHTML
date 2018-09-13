@@ -59,6 +59,7 @@
             </li>
           </ul>
         </div>
+        <link rel="stylesheet" href="countdown/count.min.css">
         <script type="text/javascript" src="./countdown/jquery.downCount.js"></script>
 
         <script type="text/javascript">
