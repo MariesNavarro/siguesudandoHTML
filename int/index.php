@@ -31,7 +31,7 @@ Sigue sudando v2
     <script src="backend/js/fingerprint2.min.js"></script>
     <script src="backend/js/app.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125324668-1"></script>
+    <script async src="ui/js/analytics.min.js"></script>
     <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
