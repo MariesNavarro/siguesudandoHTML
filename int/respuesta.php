@@ -63,7 +63,7 @@
 
         <script type="text/javascript">
             $(\'.countdown\').downCount({
-                date: \''.$cads[0].'\',
+                date: \''.str_replace("-","/",$cads[0]).'\',
                 offset: -5
             }, function () {
                 location.reload();

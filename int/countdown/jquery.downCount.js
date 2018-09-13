@@ -80,10 +80,10 @@
                 seconds = (String(seconds).length >= 2) ? seconds : '0' + seconds;
 
             // based on the date change the refrence wording
-            var ref_days = (days === 1) ? 'day' : 'days',
-                ref_hours = (hours === 1) ? 'hour' : 'hours',
-                ref_minutes = (minutes === 1) ? 'minute' : 'minutes',
-                ref_seconds = (seconds === 1) ? 'second' : 'seconds';
+            var ref_days = (days === 1) ? 'Dia' : 'Dias',
+                ref_hours = (hours === 1) ? 'Hora' : 'Horas',
+                ref_minutes = (minutes === 1) ? 'Minuto' : 'Minutos',
+                ref_seconds = (seconds === 1) ? 'Segundo' : 'Segundos';
 
             // set to DOM
             container.find('.days').text(days);
@@ -96,7 +96,7 @@
             container.find('.minutes_ref').text(ref_minutes);
             container.find('.seconds_ref').text(ref_seconds);
         };
-        
+
         // start
         var interval = setInterval(countdown, 1000);
     };
