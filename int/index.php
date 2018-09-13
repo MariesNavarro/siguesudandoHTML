@@ -3,6 +3,7 @@ Oet Capital
 Sigue sudando v2
 22 de Agosto 2018
 -->
+<?php ob_start("comprimir_pagina"); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -28,7 +29,7 @@ Sigue sudando v2
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="backend/js/fingerprint2.min.js"></script>
+    <script async src="backend/js/fingerprint2.min.js"></script>
     <script src="backend/js/app.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="analytics/gtag.min.js"></script>
@@ -171,3 +172,26 @@ Sigue sudando v2
     </script>
   </body>
 </html>
+<?php
+  ob_end_flush();
+ function comprimir_pagina($buffer) {
+
+    $search = array(
+        '/\>[^\S ]+/s',     // elimina espacios en blanco después de las etiquetas, excepto el espacio
+        '/[^\S ]+\</s',     // elimina en blanco antes de las etiquetas, excepto el espacio
+        '/(\s)+/s',         // Acortar múltiples secuencias de espacios en blanco.
+        '/<!--(.|\s)*?-->/' // Borrar comentarios html
+    );
+
+    $replace = array(
+        '>',
+        '<',
+        '\\1',
+        ''
+    );
+
+    $buffer = preg_replace($search, $replace, $buffer);
+
+    return $buffer;
+   }
+?>
