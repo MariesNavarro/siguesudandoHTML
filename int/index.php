@@ -46,7 +46,7 @@ Sigue sudando v2
       <div>
         <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280" height="280">
         <div class="flexDisplay">
-          <p></p>
+          <p>Cargando</p>
           <span></span>
           <span></span>
           <span></span>
