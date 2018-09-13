@@ -167,8 +167,7 @@ Sigue sudando v2
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.min.js" charset="utf-8"></script>
     <script>
-      // window.onload = function(){  }
-      valido();
+      window.onload = function(){ valido(); }
     </script>
   </body>
 </html>
