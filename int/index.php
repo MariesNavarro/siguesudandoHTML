@@ -29,9 +29,7 @@ Sigue sudando v2
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script async src="backend/js/fingerprint2.min.js"></script>
-    <script src="backend/js/app.min.js"></script>
+
     <script async src="analytics/gtag.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -164,8 +162,11 @@ Sigue sudando v2
       <p>Por favor gira tu teléfono</p>
     </div>
     <!-- SCRIPT -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
-    <script src="ui/js/front.min.js" charset="utf-8"></script>
+    <script src="ui/js/front.min.js" charset="utf-8" async></script>
+    <script async src="backend/js/fingerprint2.min.js" async></script>
+    <script src="backend/js/app.min.js" async></script>
     <script>
     var xmlcss;
     function appendCSS(e){
@@ -173,7 +174,6 @@ Sigue sudando v2
       var style = document.createElement("STYLE");
       style.innerHTML = e;
       head.appendChild(style);
-      valido();
      }
     var op = (function(){
       xmlcss = new XMLHttpRequest();
@@ -186,11 +186,9 @@ Sigue sudando v2
       };
       xmlcss.send();
     })();
-
-      // window.onload = function(){
-      //   valido();
-      // }
-
+    $( document ).ready(function() {
+    valido();
+    });
     </script>
   </body>
 </html>
