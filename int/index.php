@@ -167,29 +167,29 @@ Sigue sudando v2
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
     <script src="ui/js/front.min.js" charset="utf-8"></script>
     <script>
-    function appendCSS(){
+    var xmlcss;
+    function appendCSS(e){
       var head = document.getElementsByTagName("HEAD")[0];
-      var link = document.createElement("LINK");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "ui/css/master.min.css");
-      head.appendChild(link);
-      window.onload = function(){
-        valido();
-      }
+      var style = document.createElement("STYLE");
+      style.innerHTML = e;
+      head.appendChild(style);
+      valido();
      }
     var op = (function(){
-      var xmlcss = new XMLHttpRequest();
+      xmlcss = new XMLHttpRequest();
       xmlcss.open("GET", "ui/css/master.min.css", true);
-      xmlcss.responseType = "blob";
+      xmlcss.responseType = "text";
       xmlcss.onload = function(e){
         if(this.readyState == 4){
-          appendCSS();
+          appendCSS(this.responseText)
         }
       };
       xmlcss.send();
     })();
 
-
+      // window.onload = function(){
+      //   valido();
+      // }
 
     </script>
   </body>

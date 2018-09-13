@@ -38,7 +38,7 @@ function initFront(){
   var detectBrowser = (function(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
-      // enableWhatsapp();
+      enableWhatsapp();
       fixHeight();
       buttonHome.addEventListener("touchstart", lauchCoupon);
       loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
