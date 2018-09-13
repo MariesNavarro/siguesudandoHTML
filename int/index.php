@@ -12,8 +12,7 @@ Sigue sudando v2
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0000, minimum-scale=1.0000, maximum-scale=1.0000, user-scalable=no">
     <title>Sigue Sudando | Gatorade ®</title>
-    <link rel="stylesheet" href="ui/css/fonts.css">
-    <link rel="stylesheet" href="ui/css/master.css">
+    <link rel="stylesheet" href="ui/css/master.min.css">
     <link rel="stylesheet" href="countdown/count.css">
     <link rel="prefetch" href="ui/img/logotipo-gatorade.svg">
     <link rel="canonical" href="www.siguesudando.com">
@@ -29,8 +28,8 @@ Sigue sudando v2
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="backend/js/fingerprint2.js"></script>
-    <script src="backend/js/app.js"></script>
+    <script src="backend/js/fingerprint2.min.js"></script>
+    <script src="backend/js/app.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125324668-1"></script>
     <script>
@@ -165,7 +164,7 @@ Sigue sudando v2
     </div>
     <!-- SCRIPT -->
     <script src="ui/js/bowser.min.js" charset="utf-8"></script>
-    <script src="ui/js/front.js" charset="utf-8"></script>
+    <script src="ui/js/front.min.js" charset="utf-8"></script>
     <script>
       window.onload = function(){ valido(); }
     </script>
