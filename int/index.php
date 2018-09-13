@@ -14,7 +14,7 @@ Sigue sudando v2
     <meta name="viewport" content="width=device-width, initial-scale=1.0000, minimum-scale=1.0000, maximum-scale=1.0000, user-scalable=no">
     <title>Sigue Sudando | Gatorade ®</title>
     <link rel="stylesheet" href="ui/css/master.min.css">
-    <!-- <link rel="stylesheet" href="countdown/count.css"> -->
+    <!-- <link rel="stylesheet" href="countdown/count.min.css"> -->
     <link rel="prefetch" href="ui/img/logotipo-gatorade.svg">
     <link rel="canonical" href="www.siguesudando.com">
     <link rel="apple-touch-icon" sizes="180x180" href="ui/fav/apple-touch-icon.png">
