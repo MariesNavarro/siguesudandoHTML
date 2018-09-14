@@ -22,11 +22,14 @@ return  window.requestAnimationFrame       ||
     			window.setTimeout(callback, 1000 / 60);
       	};
 })();
+
 var cupon = _("#cupon1"),
     interno = 0,
     cB = false,
     w = window.innerWidth,
-    aRestar = 50;
+    aRestar = 50,
+    wrSocial = __('.socialWidth'),
+    btSocial = __('.whatsapp');
 function initFront(){
   var blk = _('#blk').style.backgroundImage = "url('ui/img/blank.png')";
   var fps = 12,
@@ -38,7 +41,12 @@ function initFront(){
   var detectBrowser = (function(){
     if(bowser.mobile || bowser.tablet || /SymbianOS/.test(window.navigator.userAgent)) cB = true;
     if(cB){
-      enableWhatsapp();
+      for (var i = 0; i < wrSocial.length; i++) {
+        wrSocial[i].style.width = "170px";
+      }
+      for (var i = 0; i < btSocial.length; i++) {
+        btSocial[i].style.display = "block";
+      }
       fixHeight();
       buttonHome.addEventListener("touchstart", lauchCoupon);
       loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
@@ -208,21 +216,6 @@ function agotadoDisplay(c){
     wr.style.display = "none";
   }
 }
-
-
-function enableWhatsapp(){
-  var wr = __('.socialWidth'),
-      bt = __('.whatsapp');
-  if(cB){
-    for (var i = 0; i < wr.length; i++) {
-      wr[i].style.width = "170px";
-    }
-    for (var i = 0; i < bt.length; i++) {
-      bt[i].style.display = "block";
-    }
-  }
-}
-
 function loadingCoupon(d){
     var generando = _("#generandocupon"),
         n = 0,
