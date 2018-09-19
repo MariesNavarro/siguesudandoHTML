@@ -60,6 +60,22 @@ function cuponesDisponibles($link,$promo) {
     return $score;
 }
 
+function cuponesUltimo($link,$promo) {
+  /* recuperar todas las filas de myCity */
+   $score="";
+   $consulta = "SELECT max(fecha_entregado) FROM gtrd_cupones WHERE estatus = 1 and id_promo = ".$promo.";";
+   if ($resultado = mysqli_query($link, $consulta)) {
+     while ($fila = mysqli_fetch_row($resultado)) {
+         $score=$fila[0];
+
+         $date = new DateTime($score);
+         $new_date_format = $date->format('d-m-Y H:i:s');
+      }
+      /* liberar el conjunto de resultados */
+      mysqli_free_result($resultado);
+    }
+    return $new_date_format;
+}
 
 //select a.cupon,a.descripcion,a.score,COUNT(b.id) from bdlt_cupones a inner join bdlt_codigos b on a.id=b.id_cupon where entregado=1 group by a.cupon,a.descripcion,a.score
 function get_pass($link,$user) {
@@ -85,11 +101,11 @@ function login($user,$pass,$promo,&$error)
   if($passdecode==$pass&&$passbd!='')
   {
     $salida='<div id="disclaimerIndex" class="">
-             <div id="content" style="text-align: center; margin-top: 430px;">
+             <div id="content">
               <section id="disclaimer">'.createhtml($link,$promo).'
               <div id="interface" class="flexDisplay">
-                <a role="button" class="buttonG trans7"  style="margin-top: 10px;" onclick="actualizadiv()">Actualizar</a>
-                <a role="button" class="buttonG trans7"  style="margin-top: 65px;" onclick="salir()">Salir</a>
+                <a role="button" class="buttonG trans7 btnActualizar"   onclick="actualizaDatos()">Actualizar <span id="timer">60</span></a>
+                <a role="button" class="buttonG trans7 btnSalir"   onclick="salir()">Salir</a>
               </div>
              </section>
              </div>
@@ -122,7 +138,7 @@ function loginhtml($error) {
         </div>';
         if($error)
        {
-          $salida=$salida.'<span class="error">Usuario o conraseña incorrecta, vuelva a intentarlo.<span>';
+          $salida=$salida.'<span class="error">Usuario o contraseña incorrecta, vuelva a intentarlo.<span>';
        }
 
        $salida=$salida.'</section>
@@ -134,7 +150,7 @@ function loginhtml($error) {
 function salir()
 {
    $salida=loginhtml(false);
-  return $salida;
+   return $salida;
 }
 function createhtml($link,$promo)
 {
@@ -142,6 +158,7 @@ function createhtml($link,$promo)
   $cup_entregadoshoy = cuponesEntregadosHoy($link,$promo);
   $cup_entregados = cuponesEntregados($link,$promo);
   $cup_disponibles = cuponesDisponibles($link,$promo);
+  $cup_ultimo = cuponesUltimo($link,$promo);
   $porc_disponibles = 0;
   $porc_entregados = 0;
   if ($cup_disponibles+$cup_entregados > 0) {
@@ -158,12 +175,36 @@ function createhtml($link,$promo)
 <div id="Consolidados" class="tabcontent"  style="text-align: center;">
   <p class="descPromo">'.$des_promo.'</p><br />
   <p style="font-size: 1.9rem;margin-top: 20px;">Cupones</p><br />
-  <p style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;">'.number_format($cup_entregadoshoy, 0, '.', ',').'</p><br />
-  <p style="font-size: 15px; margin-top: -32px;color:black;">Entregados Hoy ('.date('d-m-Y').')</p><br />
-  <p style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;">'.number_format($cup_entregados, 0, '.', ',').'</p><br />
-  <p style="font-size: 15px; margin-top: -32px;color:black;">Total Entregados ('.number_format($porc_entregados, 2, '.', ',').'%)</p><br />
-  <p style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;color: '.$color.';">'.number_format($cup_disponibles, 0, '.', ',').'</p><br />
-  <p style="font-size: 15px; margin-top: -32px;color:black;">Total Disponibles ('.number_format($porc_disponibles, 2, '.', ',').'%)</p><br />
+  <p id="cupEntregadosHoy" style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;">'.number_format($cup_entregadoshoy, 0, '.', ',').'</p><br />
+  <p style="font-size: 15px; margin-top: -32px;color:black;">Entregados Hoy</p><br />
+  <p id="cupEntregados" style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;">'.number_format($cup_entregados, 0, '.', ',').'</p><br />
+  <p id="cupEntregadosPorc" style="font-size: 15px; margin-top: -32px;color:black;">Total Entregados ('.number_format($porc_entregados, 2, '.', ',').'%)</p><br />
+  <p id="cupDisponibles" style="font-size: 4.6rem; font-weight: 300; margin-top: -15px;color: '.$color.';">'.number_format($cup_disponibles, 0, '.', ',').'</p><br />
+  <p id="cupDisponiblesPorc" style="font-size: 15px; margin-top: -32px;color:black;">Total Disponibles ('.number_format($porc_disponibles, 2, '.', ',').'%)</p><br />
+  <p style="font-size: 15px; margin-top: -5px;color:black;">Último cupón entregado el <span id="cupUltimo" style="color:white;">'.$cup_ultimo.'</span</p><br />
 </div>';
+}
+
+  function  getDatos($promo) {
+    $link=connect();
+
+    $cup_entregadoshoy = cuponesEntregadosHoy($link,$promo);
+    $cup_entregados = cuponesEntregados($link,$promo);
+    $cup_disponibles = cuponesDisponibles($link,$promo);
+    $cup_ultimo = cuponesUltimo($link,$promo);
+    $porc_disponibles = 0;
+    $porc_entregados = 0;
+    if ($cup_disponibles+$cup_entregados > 0) {
+      $porc_entregados = ($cup_entregados*100)/($cup_disponibles+$cup_entregados);
+      $porc_disponibles = ($cup_disponibles*100)/($cup_disponibles+$cup_entregados);
+    }
+    $color = "green";
+
+    if ($porc_disponibles < 25) { $color = "red";}
+    if ($porc_disponibles >= 25 and $porc_disponibles < 40) { $color = "orange";}
+
+    $salida = number_format($cup_entregadoshoy, 0, '.', ',').";".number_format($cup_entregados, 0, '.', ',').";".number_format($cup_disponibles, 0, '.', ',').";Total Entregados (".number_format($porc_entregados, 2, '.', ',')."%);Total Disponibles (".number_format($porc_disponibles, 2, '.', ',')."%);".$color.";".$cup_ultimo.";";
+
+    return $salida;
 }
 ?>
