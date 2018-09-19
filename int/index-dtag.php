@@ -3,24 +3,11 @@ Oet Capital
 Sigue sudando v2
 22 de Agosto 2018
 -->
+<?php ob_start("comprimir_pagina"); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-
-    <script>
-    dataLayer = [{
-        'event': 'checkout',
-        'ecommerce': {
-            'checkout': {
-                'actionField': {
-                    'step': 1,
-                    'page': 'Home',
-                    'site': 'siguesudando.com'
-                }
-            }
-        }
-    }];
-    </script>
+    <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -63,6 +50,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLCX3GQ"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<script>
+dataLayer = [{
+    'event': 'checkout',
+    'ecommerce': {
+        'checkout': {
+            'actionField': {
+                'step': 1,
+                'page': 'Home',
+                'site': 'siguesudando.com'
+            }
+        }
+    }
+}];
+</script>
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth trans7">
       <div>
@@ -186,6 +187,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Por favor gira tu teléfono</p>
     </div>
     <!-- SCRIPT -->
-    <script src="ui/js/frontuni.js" charset="utf-8" defer></script>>
+    <script src="ui/js/frontuni.min.js" charset="utf-8" defer></script>>
   </body>
 </html>
+<?php
+  ob_end_flush();
+ function comprimir_pagina($buffer) {
+    $search = array(
+        '/\>[^\S ]+/s',
+        '/[^\S ]+\</s',
+        '/(\s)+/s',
+        '/<!--(.|\s)*?-->/'
+    );
+    $replace = array(
+        '>',
+        '<',
+        '\\1',
+        ''
+    );
+    $buffer = preg_replace($search, $replace, $buffer);
+    return $buffer;
+   }
+?>

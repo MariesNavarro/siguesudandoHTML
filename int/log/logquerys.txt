@@ -216,3 +216,4 @@ IP:[::1] Fecha[2018-09-07 13:31:14] ejecucion:[UPDATE  gtrd_cupones SET estatus 
 >>>>>>> ecbe729fd86ae0a42dc817ac5003b02d3807a616
 IP:[::1] Fecha[2018-09-13 14:53:16] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='d2c91848dfa00d37fd7b541dae4f6c4c',fecha_entregado=NOW() WHERE codigo = '2015321001440']
 IP:[::1] Fecha[2018-09-13 19:03:05] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='a1eee1a655d1750667286b69d4798c2c',fecha_entregado=NOW() WHERE codigo = '2015321002919']
+IP:[::1] Fecha[2018-09-14 12:30:59] ejecucion:[UPDATE  gtrd_cupones SET estatus = 1,ip='::1',huella_digital='b185e994b5ecd71463872b35959513b1',fecha_entregado=NOW() WHERE codigo = '2015321003396']

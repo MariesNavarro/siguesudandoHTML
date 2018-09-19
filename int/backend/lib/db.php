@@ -33,13 +33,14 @@ function validaregion($idprom,$ip,$link)
   if ($resultado = mysqli_query($link, $consulta)) {
     while ($fila = mysqli_fetch_row($resultado)) {
         $count++;
-        promvalidestado($ip,$idprom,$link);
      }
      if($count<1)
      {
        //getcupon($link,$ip,$idClient,$idprom);
        //Es valido
        echo "SI";
+     } else {
+        promvalidestado($ip,$idprom,$link);
      }
   }
   else {
@@ -125,6 +126,11 @@ function promvalidestado($ip,$idprom,$link)
     }
     if($count<1)
     {
+
+      $date= date("Y-m-d H:i:s");
+      $comple='IP:['.$ip.'] PAIS:['.$codpais.']  ESTADO:['.$country_region.']  Fecha['.$date.'] Ejecucion:[La promoción no es válida para tu ubicación]';
+      writelog($comple);
+
       echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;>
         <h1>
           <a href="index.php"> <!-- CAMBIAR!!!!! -->
@@ -231,22 +237,32 @@ function getcodigo($link,$promo,$ip,$huella)
 }
 function update_codigos($codigo,$client,$idClient,$link)
 {
-	//$query ="UPDATE  bdlt_registro SET fecha_update =CURRENT_TIMESTAMP WHERE usuario = '".$usuario."' or idfb='".$idfb."'";
-  $query ="UPDATE  gtrd_cupones SET estatus = 1,ip='".$client."',huella_digital='".$idClient."',fecha_entregado=NOW() WHERE codigo = '".$codigo."'";
-  $ip=$client;
-    $date= date("Y-m-d H:i:s");
-    $comple='IP:['.$ip.'] Fecha['.$date.'] ejecucion:['.$query.']';
-    writelog($comple);
-    if (mysqli_query($link, $query)) {
-      //echo "Updated record successfully<br>";
-    }
-    if (!mysqli_commit($link)) {
-      //echo "Falló la consignación de la transacción<br>";
-      exit();
-    }
-    else
-    {
-    }
-}
 
+  $salida          = 0;
+  $country_code    = '';
+  $ip_address      = $client;
+  $country_name    = 'Local';
+  $country_city    = '';
+  $country_region  = '';
+  $estado='';
+  $codpais='';
+  $count=0;
+  //$salida = get_country_local($country_code,$ip_address,$lang,$country_name,$id_group); // busqueda en BD local
+  //if ($salida==0) {
+  $salida = get_country_api($country_code,$ip_address,$country_region,$codpais);
+
+	//$query ="UPDATE  bdlt_registro SET fecha_update =CURRENT_TIMESTAMP WHERE usuario = '".$usuario."' or idfb='".$idfb."'";
+  $query ="UPDATE  gtrd_cupones SET estatus = 1,ip='".$client."',pais='".$codpais."',estado='".$country_region."',huella_digital='".$idClient."',fecha_entregado=NOW() WHERE codigo = '".$codigo."'";
+  $ip=$client;
+  $date= date("Y-m-d H:i:s");
+  $comple='IP:['.$ip.'] PAIS:['.$codpais.'] ESTADO:['.$country_region.'] Fecha['.$date.'] Ejecucion:['.$query.']';
+  writelog($comple);
+  if (mysqli_query($link, $query)) {
+    //echo "Updated record successfully<br>";
+  }
+  if (!mysqli_commit($link)) {
+    //echo "Falló la consignación de la transacción<br>";
+    exit();
+  }
+}
 ?>
