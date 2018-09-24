@@ -19,4 +19,9 @@
     $result=salir();
     echo $result;
   }
+  else if($tipo==3)
+  {
+    $result=getDatos($promo);
+    echo $result;
+  }
 ?>

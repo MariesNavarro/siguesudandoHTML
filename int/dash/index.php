@@ -27,7 +27,7 @@ Sigue sudando v2
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="backend/js/app.js"></script>
   </head>
   <body id="index" class="standarWidth">

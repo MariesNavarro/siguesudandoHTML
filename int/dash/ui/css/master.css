@@ -31,8 +31,16 @@ body{
   font-size: 2.0rem;
   margin-top: 25px;
 }
+.btnActualizar {
+  margin-top: 10px;
+}
+.btnSalir {
+  margin-top: 65px;;
+}
+
 #content {
   text-align: center;
+  margin-top: 430px;
 }
 #loading{
 /*  position:fixed;*/
@@ -564,6 +572,7 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 }
 #preventLandscape>p{ margin: 10px auto; }
 
+
 @media screen and (max-device-width: 640px) {
     #wrapper { /*border: 2px solid blueviolet;  width: 100%;*/ }
     .descPromo {
@@ -571,9 +580,23 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
       margin-top: -48px;
     }
     #content {
-      margin-top: 332px!important;
+      margin-top: 375px!important;
     }
     #preventLandscape {
       margin-top: -85px!important;
+    }
+    .buttonG{
+      font-size: 0.9rem;
+      width: 160px;
+      height: 30px;
+      border-radius: 30px;
+      line-height: 30px;
+      left: calc(50% - 80px);
+    }
+    .btnActualizar {
+      margin-top: 0px;
+    }
+    .btnSalir {
+      margin-top: 45px;;
     }
 }

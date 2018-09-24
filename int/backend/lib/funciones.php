@@ -107,9 +107,18 @@ function get_country_api(&$country_code,&$ip_address,&$country_region,&$codpais)
     }
     $addrDetailsArr = unserialize($response);
     $country_code   = $addrDetailsArr['geoplugin_countryName'];
-    $country_region = $addrDetailsArr['geoplugin_regionName'];
-    $codpais = $addrDetailsArr['geoplugin_countryCode'];
-    if ($country_code!='') {  $salida = 1;}
+
+    if ($country_code!='')
+    {
+      $country_region = $addrDetailsArr['geoplugin_regionCode'];
+      $codpais = $addrDetailsArr['geoplugin_countryCode'];
+      $salida = 1;
+    }
+    else {
+      $country_code   = 'Mexico';
+      $country_region = 'ALL';
+      $codpais = 'MX';
+    }
     return $salida;
 }
 function writelog($string)

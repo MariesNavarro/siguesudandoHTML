@@ -1,11 +1,28 @@
-var MetodoEnum = {
-  Ingresar: 1,
-  Salir: 2
- };
+var milisegundos = 1000;
+var x            = 60;  // timer cada 60seg actualizar
+var MetodoEnum = { Ingresar: 1,  Salir: 2,  Datos: 3 };
 var param1;
 var param2;
 var param3;
 var param4;
+
+$(document).ready(function() {
+    console.log('Ready...');
+    timer = setInterval('temporizador()', milisegundos);
+});
+
+function temporizador() {
+    $(document).ready(function() {
+        if (x==0) {
+           // clearInterval(timer);
+            x=60;
+            actualizaDatos();
+        }
+    });
+    //console.log(x);
+    $('#timer').text(x);
+    x--;
+}
 
 function ingresar() {
   param1=$('#username')[0].value;
@@ -40,26 +57,31 @@ function actualizadiv(){
     }
   });
 }
-function opentab(evt, tabname) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
 
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+function actualizaDatos(){
+  param1='';
+  param2='';
+  param3=MetodoEnum.Datos;
+  param4=1;  // promo
+  var dataString = 'actualizaDatos param1=' + param1 + '&param2=' + param2+'&param3=' + param3+'&param4=' + param4;
+  console.log(dataString);
+  $.ajax({
+    type : 'POST',
+    url  : 'respuesta.php',
+    data:  dataString,
+    success:function(data) {
+      console.log(data);
+      $("#cupEntregadosHoy").text(data.split(";")[0]); // Cupones entregados hoy
+      $("#cupEntregados").text(data.split(";")[1]); // Cupones entregados
+      $("#cupDisponibles").text(data.split(";")[2]); // Cupones Disponibles
+      $("#cupEntregadosPorc").text(data.split(";")[3]); // Cupones entregados %
+      $("#cupDisponiblesPorc").text(data.split(";")[4]); // Cupones disponibles %
+      $("#cupUltimo").text(data.split(";")[6]); // Cupones último
+      x=60;
     }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabname).style.display = "block";
-    evt.currentTarget.className += " active";
+  });
 }
+
 $(document).keypress(function (e) {
     if (e.which == 13) {
         ingresar();

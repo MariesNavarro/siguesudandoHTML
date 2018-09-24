@@ -3,10 +3,30 @@ Oet Capital
 Sigue sudando v2
 22 de Agosto 2018
 -->
-<?php ob_start("comprimir_pagina"); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+
+    <script>
+    dataLayer = [{
+        'event': 'checkout',
+        'ecommerce': {
+            'checkout': {
+                'actionField': {
+                    'step': 1,
+                    'page': 'Home',
+                    'site': 'siguesudando.com'
+                }
+            }
+        }
+    }];
+    </script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MLCX3GQ');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -29,9 +49,7 @@ Sigue sudando v2
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script async src="backend/js/fingerprint2.min.js"></script>
-    <script src="backend/js/app.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js" defer></script>
     <script async src="analytics/gtag.min.js"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -41,6 +59,10 @@ Sigue sudando v2
     </script>
   </head>
   <body id="index" class="standarWidth">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLCX3GQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
     <!-- LOADING -->
     <div id="loading" class="flexDisplay standarWidth trans7">
       <div>
@@ -164,47 +186,6 @@ Sigue sudando v2
       <p>Por favor gira tu teléfono</p>
     </div>
     <!-- SCRIPT -->
-    <script src="ui/js/bowser.min.js" charset="utf-8"></script>
-    <script src="ui/js/front.min.js" charset="utf-8"></script>
-    <script>
-    var xmlcss;
-    function appendCSS(e){
-      var head = document.getElementsByTagName("HEAD")[0];
-      var style = document.createElement("STYLE");
-      style.innerHTML = e;
-      head.appendChild(style);
-      valido();
-     }
-    var op = (function(){
-      xmlcss = new XMLHttpRequest();
-      xmlcss.open("GET", "ui/css/master.min.css", true);
-      xmlcss.responseType = "text";
-      xmlcss.onload = function(e){
-        if(this.readyState == 4){
-          appendCSS(this.responseText)
-        }
-      };
-      xmlcss.send();
-    })();
-    </script>
+    <script src="ui/js/frontuni.js" charset="utf-8" defer></script>>
   </body>
 </html>
-<?php
-  ob_end_flush();
- function comprimir_pagina($buffer) {
-    $search = array(
-        '/\>[^\S ]+/s',
-        '/[^\S ]+\</s',
-        '/(\s)+/s',
-        '/<!--(.|\s)*?-->/'
-    );
-    $replace = array(
-        '>',
-        '<',
-        '\\1',
-        ''
-    );
-    $buffer = preg_replace($search, $replace, $buffer);
-    return $buffer;
-   }
-?>
