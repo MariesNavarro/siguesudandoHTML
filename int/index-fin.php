@@ -6,26 +6,6 @@ Sigue sudando v2
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script>
-    dataLayer = [{
-        'event': 'checkout',
-        'ecommerce': {
-            'checkout': {
-                'actionField': {
-                    'step': 1,
-                    'page': 'Home',
-                    'site': 'siguesudando.com'
-                }
-            }
-        }
-    }];
-    </script>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MLCX3GQ');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -48,32 +28,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="theme-color" content="#ffffff">
     <meta name="description" content="El lugar perfecto para encontrar las mejores promociones de toda la línea de Gatorade ®">
     <meta name="keywords" content="Sigue Sudando, Hidratación, Hidratar, Ejercicio, Electrolitos, Energía, Gatorade, Promoción, Deporte, Football Energy, OXXO">
-    <script src="https://code.jquery.com/jquery-latest.min.js" defer></script>
-    <script async src="analytics/gtag.min.js"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-125324668-1');
-    </script>
+    <link rel="stylesheet" href="ui/css/masterfin.css">
   </head>
   <body id="index" class="standarWidth">
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLCX3GQ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <!-- LOADING -->
-    <div id="loading" class="flexDisplay standarWidth trans7">
-      <div>
-        <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="280" height="280">
-        <div class="flexDisplay">
-          <p></p>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </div>
     <!-- MENU -->
     <nav id="menu" class="flexDisplay trans7">
       <h1>
@@ -84,82 +41,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p id="stateText"></p>
       <div id="blk" class="flexDisplay" style="background-image:url('ui/img/blank.png')"></div>
     </nav>
-    <!-- PRODUCTOS CARRUSEL -->
-    <div id="carrusel" class="standarWidth" style="display:block">
-      <section id="producto1" class="producto flexDisplay trans7">
-        <div class="wrap trans7"></div>
-        <a role="button" id="buttonHome" class="buttonG scaleUpButtonInit">Obtén Tu Cupón</a>
-      </section>
-    </div>
-    <!-- GENERANDO CUPÓN -->
-    <div id="generandocupon" class="standarWidth trans7" style="display:block">
-      <section id="loadCoupon1" class="producto flexDisplay">
-        <div class="wrap"></div>
-        <div id="counter" class="flexDisplay">
-          <svg viewBox="0 0 119.5 119.5"><path id="ccircleB" class="ccircle" d="M7.5,59.75a52.25,52.25 0 1,0 104.5,0a52.25,52.25 0 1,0 -104.5,0"/></svg>
-          <svg viewBox="0 0 119.5 119.5"><path id="ccircleW" class="ccircle" d="M7.5,59.75a52.25,52.25 0 1,0 104.5,0a52.25,52.25 0 1,0 -104.5,0"/></svg>
-          <p>0</p>
-        </div>
-      </section>
-    </div>
-    <!-- CUPON 24 -->
-    <div id="horasDiv" class="mensaje standarWidth" style="display:block">
-      <div class="flexDisplay">
-        <p>
-          <span>¡Ups!</span>
-        </p>
-        <p>
-          Acabas de crear un cupón <br/><span>vuelve pronto.</span>
-        </p>
-        <div id="social" class="flexDisplay socialWidth">
-          <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="50" height="50">
-          </a>
-          <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="50" height="50">
-          </a>
-          <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
-            <img src="ui/img/social/wspp.svg" width="50" height="50">
-          </a>
-        </div>
-      </div>
-    </div>
     <!-- CUPON Agotado -->
-    <div id="agotadoDiv" class="mensaje standarWidth" style="display:none">
+    <div id="agotadoDiv" class="mensaje standarWidth">
       <div class="flexDisplay">
         <p>
-          <span>¡Ups!</span>
+          <span>¡Esta promo ya se terminó!</span>
         </p>
-        <p>
-          Los cupones <span>se han agotado</span>
-        </p>
-        <div id="social" class="flexDisplay socialWidth">
-          <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-            <img src="ui/img/social/fb.svg" width="50" height="50">
-          </a>
-          <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-            <img src="ui/img/social/ig.svg" width="50" height="50">
-          </a>
-          <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
-            <img src="ui/img/social/wspp.svg" width="50" height="50">
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- CUPÓN -->
-    <div id="cupon" class="standarWidth" style="display:none">
-      <section id="cupon1" class="cupon"></section>
-      <a id="download" role="button" class="buttonG trans7" onclick="savedCoupon()">Guarda Cupón</a>
-    </div>
-    <!-- CUPÓN GUARDADO -->
-    <div id="guardado" class="mensaje standarWidth" style="display:none">
-      <div class="flexDisplay">
-        <img src="ui/img/logotipo-gatorade.svg" alt="Logotipo Gatorade ®" width="120" height="120">
-        <p>
-          Ya tienes más <span>Gatorade<span>®</span></span> para seguir sudando
-        </p>
-        <p>
-          <span>#siguesudando<span>®</span></span>
+        <p stlye="color:#fff">
+          Pero todavía puedes redimir los cupones que tienes guardados.
         </p>
         <div id="social" class="flexDisplay socialWidth">
           <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
@@ -185,6 +74,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Por favor gira tu teléfono</p>
     </div>
     <!-- SCRIPT -->
-    <script src="ui/js/frontuni.js" charset="utf-8" defer></script>
+    <!-- <script src="ui/js/frontuni.js" charset="utf-8" defer></script> -->
   </body>
 </html>
