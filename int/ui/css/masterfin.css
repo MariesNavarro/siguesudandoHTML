@@ -271,9 +271,9 @@ nav>p{ text-transform: uppercase; font-size: 0.7rem; }
 .mensaje>div>p{
   font-family: 'GBold', serif;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-align: center;
-  width: 400px;
+  width: 300px;
   line-height: 1;
 }
 .mensaje>div>p>span{
