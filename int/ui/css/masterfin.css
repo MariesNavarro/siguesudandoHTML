@@ -22,7 +22,7 @@ nav{
   -ms-justify-content: space-between;
   -o-justify-content: space-between;
   justify-content: space-between;
-  opacity: 0;
+  /* opacity: 0; */
 }
 #menubases{ opacity: 1; }
 nav>p{ text-transform: uppercase; font-size: 0.7rem; }
