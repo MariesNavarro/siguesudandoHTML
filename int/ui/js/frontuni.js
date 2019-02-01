@@ -1402,7 +1402,7 @@ var MetodoEnum = {
   Obten_Cupon:2
  };
  var codigo='';
- var   promo=1;
+ //var   promo=1;
 "use strict";
 window.console.log("%cCoded by Oet Capital", "color:#fff;  font-size: 10px; background:#000; padding:20px;");
 function _(el){return document.querySelector(el); }
@@ -1436,7 +1436,7 @@ var cupon = _("#cupon1"),
     wrSocial = __('.socialWidth'),
     btSocial = __('.whatsapp');
 function initFront(){
-  var blk = _('#blk').style.backgroundImage = "url('ui/img/blank.png')";
+  var blk = _('#blk').style.backgroundImage = "url('/ui/img/blank.png')";
   var fps = 12,
       fpsHome,
       fpsCoupon,
@@ -1454,13 +1454,13 @@ function initFront(){
       }
       fixHeight();
       buttonHome.addEventListener("touchstart", lauchCoupon);
-      loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
+      loadingSeq("/ui/img/seqHome/mob-", ".jpg", 29, "home");
     } else {
       buttonHome.addEventListener("click", lauchCoupon);
       if(w < 960){
-        loadingSeq("ui/img/seqHome/mob-", ".jpg", 29, "home");
+        loadingSeq("/ui/img/seqHome/mob-", ".jpg", 29, "home");
       } else {
-        loadingSeq("ui/img/seqHome/desk-", ".jpg", 28, "home");
+        loadingSeq("/ui/img/seqHome/desk-", ".jpg", 28, "home");
       }
     }
   })();
@@ -1531,18 +1531,18 @@ function initFront(){
     el[0].setAttribute("class", " ");
   }
   function lauchCoupon(){
-    dataLayer.push({
-    'event': 'checkout',
-    'ecommerce': {
-      'checkout': {
-        'actionField': {
-        	'step': 2,
-		'page': 'Obtener Cupon',
-		'site': 'siguesudando.com'
-    	},
-     }
-    }
-});
+    // dataLayer.push({
+    //'event': 'checkout',
+    //'ecommerce': {
+    //  'checkout': {
+    //    'actionField': {
+      //  	'step': 2,
+		//'page': 'Obtener Cupon',
+		//'site': 'siguesudando.com'
+    //	},
+     //}
+    //}
+//});
 
     var tx = _('#stateText').innerHTML = "Cargando Cupón...";
     var carrusel = _('#carrusel').style.display = "none";
@@ -1570,11 +1570,11 @@ function initFront(){
             if(c === len && seq === "home"){
               displaySeqHome(url, ext, len);
               if(cB === true){
-                loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
+                loadingSeq("/ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
               } else if (cB === false && w < 960) {
-                loadingSeq("ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
+                loadingSeq("/ui/img/seqLoadCoupon/mob-", ".jpg", 26, "coupon");
               } else if(cB === false && w >= 960){
-                loadingSeq("ui/img/seqLoadCoupon/desk-", ".jpg", 26, "coupon");
+                loadingSeq("/ui/img/seqLoadCoupon/desk-", ".jpg", 26, "coupon");
               }
             }
 
@@ -1590,22 +1590,22 @@ function initFront(){
 
 function handleSizeCoupon(wid){
   if(cB){
-    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoMob-"+interno+".jpg')";
   } else if (cB === false && wid < 960) {
-    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoMob-"+interno+".jpg')";
   } else if (cB === false && wid >= 960) {
-    cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoDesk-"+interno+".jpg')";
   }
 }
 
 function generateCoupon(i){
   interno = i;
   if(cB){
-    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoMob-"+interno+".jpg')";
   } else if (!cB && w < 960) {
-    cupon.style.backgroundImage = "url('ui/img/promoMob-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoMob-"+interno+".jpg')";
   } else if (!cB && w >= 960) {
-    cupon.style.backgroundImage = "url('ui/img/promoDesk-"+interno+".jpg')";
+    cupon.style.backgroundImage = "url('/ui/img/promoDesk-"+interno+".jpg')";
   }
 }
 
@@ -1663,26 +1663,26 @@ function loadingCoupon(d){
           }
           else {
             generateCoupon(d);
-            dataLayer.push({
-  'event': 'purchase',
-  'ecommerce': {
-    'purchase': {
-      'actionField': {
-        'step'   : 3,
-	'site'   : 'siguesudando.com',
-        'id'     :codigo,  				<!-- Id de Regitro único en el sistema -->
-        'coupon' : d 				<!-- Id de Cupón Generado -->
-      },
-    }
-  },
-});
+            //dataLayer.push({
+  //'event': 'purchase',
+  //'ecommerce': {
+    //'purchase': {
+      //'actionField': {
+      //  'step'   : 3,
+	//'site'   : 'siguesudando.com',
+    //    'id'     :codigo,  				<!-- Id de Regitro único en el sistema -->
+      //  'coupon' : d 				<!-- Id de Cupón Generado -->
+      //},
+    //}
+  //},
+//});
             var arch='';
             if(cB){
-              arch='ui/img/promoMob-'+d+'.jpg';
+              arch='/ui/img/promoMob-'+d+'.jpg';
             } else if (!cB && w < 960) {
-              arch='ui/img/promoMob-'+d+'.jpg';
+              arch='/ui/img/promoMob-'+d+'.jpg';
             } else if (!cB && w >= 960) {
-              arch='ui/img/promoDesk-'+d+'.jpg';
+              arch='/ui/img/promoDesk-'+d+'.jpg';
             }
             toDataURL(arch, function(dataUrl) {
 
@@ -1709,26 +1709,26 @@ var h = window.innerHeight,
 }
 function displayCoupon(){
   var cupon = _("#cupon").style.display = "block";
-  var blk = _('#blk').style.backgroundImage = "url('ui/img/oxxo_logotipo.png')";
+  var blk = _('#blk').style.backgroundImage = "url('/ui/img/oxxo_logotipo.png')";
 }
 
 function savedCoupon(){
   var cupon = _("#cupon").style.display = "none";
   var guardado = _("#guardado").style.display = "block";
   var tx = _('#stateText').innerHTML = "Cupón Guardado Exitosamente";
-  var blk = _('#blk').style.backgroundImage = "url('ui/img/blank.png')";
-  dataLayer.push = ({
-    'event': 'imprimir',
-    'ecommerce': {
-        'checkout': {
-            'actionField': {
-                'step': 4,
-                'site': 'siguesudando.com',
-		'page': 'Imprimir Cupon',
-            }
-        }
-    }
-});
+  var blk = _('#blk').style.backgroundImage = "url('/ui/img/blank.png')";
+  //dataLayer.push = ({
+    //'event': 'imprimir',
+    //'ecommerce': {
+        //'checkout': {
+        //    'actionField': {
+      //          'step': 4,
+    //            'site': 'siguesudando.com',
+	//	'page': 'Imprimir Cupon',
+      //      }
+    //    }
+  //  }
+//});
 }
 
 window.onorientationchange = function(){
@@ -1766,7 +1766,7 @@ function cuponjs(param1)
   var dataString = 'param1=' + param1 + '&codigo=' + codigo + '&promo=' + promo;
         $.ajax({
            type : 'POST',
-           url  : 'respuesta.php',
+           url  : '../respuesta.php',
            data:  dataString,
 
            success:function(data) {
@@ -1787,7 +1787,7 @@ function ValidateDate(param1) {
 
   $.ajax({
     type : 'POST',
-    url  : 'respuesta.php',
+    url  : '../respuesta.php',
     data:  dataString,
     success:function(data) {
 
@@ -1830,7 +1830,7 @@ function appendCSS(e){
     }
    var op = (function(){
      xmlcss = new XMLHttpRequest();
-     xmlcss.open("GET", "ui/css/master.min.css", true);
+     xmlcss.open("GET", "/ui/css/master.min.css", true);
      xmlcss.responseType = "text";
      xmlcss.onload = function(e){
        if(this.readyState == 4){

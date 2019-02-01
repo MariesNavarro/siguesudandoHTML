@@ -28,7 +28,7 @@
         echo '<nav id="logo" class="flexDisplay trans7" style="opacity: 1;">
           <h1>
             <a href="index.html"> <!-- CAMBIAR!!!!! -->
-              <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®" title="Gatorade ®" width="60px">
+              <img src="/ui/img/logotipo-gatorade.svg" alt="Gatorade ®" title="Gatorade ®" width="60px">
             </a>
           </h1>
           <p id="stateText"></p>
@@ -76,7 +76,7 @@
       echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;">
         <h1>
           <a href="index.php"> <!-- CAMBIAR!!!!! -->
-            <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+            <img src="/ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
           </a>
         </h1>
         <p id="stateText"></p>
@@ -92,13 +92,13 @@
           </p>
           <div id="social" class="flexDisplay socialWidth">
             <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-              <img src="ui/img/social/fb.svg" width="50" height="50">
+              <img src="/ui/img/social/fb.svg" width="50" height="50">
             </a>
             <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-              <img src="ui/img/social/ig.svg" width="50" height="50">
+              <img src="/ui/img/social/ig.svg" width="50" height="50">
             </a>
             <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
-              <img src="ui/img/social/wspp.svg" width="50" height="50">
+              <img src="/ui/img/social/wspp.svg" width="50" height="50">
             </a>
           </div>
         </div>

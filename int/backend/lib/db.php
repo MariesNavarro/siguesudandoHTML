@@ -58,7 +58,7 @@ function validalista($idprom,$ip)
         echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;>
           <h1>
             <a href="index.php"> <!-- CAMBIAR!!!!! -->
-              <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+              <img src="/ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
             </a>
           </h1>
           <p id="stateText"></p>
@@ -73,13 +73,13 @@ function validalista($idprom,$ip)
             </p>
             <div id="social" class="flexDisplay socialWidth">
               <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-                <img src="ui/img/social/fb.svg" width="50" height="50">
+                <img src="/ui/img/social/fb.svg" width="50" height="50">
               </a>
               <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-                <img src="ui/img/social/ig.svg" width="50" height="50">
+                <img src="/ui/img/social/ig.svg" width="50" height="50">
               </a>
               <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
-                <img src="ui/img/social/wspp.svg" width="50" height="50">
+                <img src="/ui/img/social/wspp.svg" width="50" height="50">
               </a>
             </div>
           </div>
@@ -134,7 +134,7 @@ function promvalidestado($ip,$idprom,$link)
       echo '<nav id="menu" class="flexDisplay trans7" style="opacity: 1;>
         <h1>
           <a href="index.php"> <!-- CAMBIAR!!!!! -->
-            <img src="ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
+            <img src="/ui/img/logotipo-gatorade.svg" alt="Gatorade ®| Sigue Sudando | Promociones" title="Gatorade ®| Sigue Sudando | Promociones" width="60px">
           </a>
         </h1>
         <p id="stateText"></p>
@@ -149,13 +149,13 @@ function promvalidestado($ip,$idprom,$link)
           </p>
           <div id="social" class="flexDisplay socialWidth">
             <a href="https://www.facebook.com/GatoradeMexico/" target="_blank">
-              <img src="ui/img/social/fb.svg" width="50" height="50">
+              <img src="/ui/img/social/fb.svg" width="50" height="50">
             </a>
             <a href="https://www.instagram.com/gatorademexico/" target="_blank">
-              <img src="ui/img/social/ig.svg" width="50" height="50">
+              <img src="/ui/img/social/ig.svg" width="50" height="50">
             </a>
             <a class="whatsapp" href="whatsapp://send?text=https://siguesudando.com" data-action="share/whatsapp/share" style="display:none">
-              <img src="ui/img/social/wspp.svg" width="50" height="50">
+              <img src="/ui/img/social/wspp.svg" width="50" height="50">
             </a>
           </div>
         </div>
@@ -173,7 +173,7 @@ function getcupon($client,$idClient,$promo)
 {
   $count=0;
   $link=connect();
-  $query1 = "SELECT ((TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(24*60*60)) and ('".$client."'  not in (select ip from gtrd_listanegra))) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where estatus=1 and ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
+  $query1 = "SELECT ((TIME_TO_SEC(TIMEDIFF(NOW(), fecha_entregado))>(1*1*1)) and ('".$client."'  not in (select ip from gtrd_listanegra))) Entregar,TIMEDIFF(NOW(), fecha_entregado) TiempoTranscurrido,TIMEDIFF( TIMEDIFF('2018-08-01 00:00:00', '2018-07-31 00:00:00'),TIMEDIFF(NOW(), fecha_entregado)) TiempoRestante from gtrd_cupones where estatus=1 and ip='".$client."' and huella_digital='".$idClient."' and id_promo=".$promo." order by fecha_entregado desc LIMIT 1;";
   //echo $query1;
   if ($resultado = mysqli_query($link, $query1)) {
     while ($fila = mysqli_fetch_row($resultado)) {
